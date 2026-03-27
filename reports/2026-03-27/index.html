@@ -48,6 +48,9 @@
   tbody td:first-child a:hover { color: #457b9d; text-decoration: underline; }
   tbody tr.row-paused td { color: #9ca3af; }
   tbody tr.row-paused td:first-child { color: #9ca3af; }
+  tbody tr.row-flagged { background: #fffbeb; }
+  .flag-note { font-size: 10px; color: #92400e; font-weight: 500; margin-top: 3px; }
+  .data-flag { cursor: help; }
   tfoot tr { border-top: 2px solid #eaedf0; background: #f8f9fb; }
   tfoot td { padding: 9px 12px; font-weight: 700; font-size: 11px; text-align: right; }
   tfoot td:first-child, tfoot td:nth-child(2) { text-align: left; }
@@ -152,15 +155,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="">
-      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_GROUP_ID-STRING%1EEQUAL%1E%22120239432523620031%22&selected_campaign_ids=120239432523620031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">THMC_Meta_Generic_20260206 ↗</a></td>
+        <tr class=" row-flagged">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_GROUP_ID-STRING%1EEQUAL%1E%22120239432523620031%22&selected_campaign_ids=120239432523620031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">THMC_Meta_Generic_20260206 ↗</a><div class="flag-note">⚠️ EV is ~$700K higher than expected. Outlier data — treat with caution.</div></td>
       <td><span class="badge-active">Active</span></td>
       <td class="num">$4,077</td>
       <td class="num">23</td>
       <td class="num">1</td>
       <td class="num"><span class="score-mid">62.9</span></td>
       <td class="num">$39.8K</td>
-      <td class="num">$835.0K</td>
+      <td class="num">$835.0K <span class="data-flag" title="⚠️ EV is ~$700K higher than expected. Outlier data — treat with caution.">⚠️</span></td>
       <td class="num"><span class="roas-high">204.8x</span></td>
     </tr>
 <tr class="">
@@ -481,7 +484,7 @@
         <div class="assessment-title">Insights</div>
       </div>
       <ol class="assessment-list">
-        <li>70% of total expected value is concentrated in one campaign — Generic at $835,043. Pipeline depends heavily on this single source.</li>
+        <li>70% of total expected value is concentrated in one campaign — Generic at $835,043. Note: this campaign contains a known data anomaly — EV is flagged as approximately $700K overstated.</li>
         <li>Google accounts for 84% of spend but only 24% of expected value. Meta is generating 76% of EV on 16% of budget — a meaningful efficiency gap between channels.</li>
         <li>Application quality is split. 2 campaigns averaging scores above 70 — Brokers, Expansion (FL, OH, NC) - Non-Brand Search — while 5 active campaigns are pulling the average down below 50.</li>
         <li>Cost per application is $132 on Meta versus $538 on Google. Meta is acquiring applications at 4.1x lower cost.</li>
@@ -542,4 +545,4 @@
   The Hard Money Co. · Last 14 Days · Mar 13 – Mar 27, 2026 · Powered by Toro-Bot &amp; Cometly · Generated 3/27/2026, 3:19:29 PM
 </footer>
 </body>
-</html><!-- rebuilt Fri Mar 27 20:36:58 UTC 2026 -->
+</html>
