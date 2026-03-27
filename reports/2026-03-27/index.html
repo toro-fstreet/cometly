@@ -70,6 +70,30 @@
   .summary-item .label { color: #4b5563; }
   .summary-item .val { font-weight: 600; }
 
+  /* Assessment section */
+  .assessment-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; }
+  .assessment-card { background: white; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); overflow: hidden; }
+  .assessment-header { display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-bottom: 1px solid #eaedf0; }
+  .insights-header { background: #f0fdf4; }
+  .recs-header { background: #fef9f0; }
+  .assessment-icon { font-size: 22px; }
+  .assessment-title { font-size: 13px; font-weight: 700; color: #1a1a2e; }
+  .assessment-sub { font-size: 11px; color: #8892a4; margin-top: 2px; }
+  .assessment-list { list-style: none; padding: 0; counter-reset: insight-counter; }
+  .assessment-list li { counter-increment: insight-counter; display: flex; gap: 12px; padding: 12px 20px; border-bottom: 1px solid #f0f2f5; font-size: 12px; line-height: 1.5; color: #374151; }
+  .assessment-list li:last-child { border-bottom: none; }
+  .assessment-list li::before { content: counter(insight-counter); background: #e8f5e9; color: #2dc653; font-weight: 700; font-size: 10px; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .rec-list { padding: 0; }
+  .rec-item { display: flex; gap: 12px; padding: 12px 20px; border-bottom: 1px solid #f0f2f5; align-items: flex-start; }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-tag { font-size: 9px; font-weight: 700; padding: 3px 7px; border-radius: 4px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .rec-up { background: #d4edda; color: #155724; }
+  .rec-down { background: #fff3cd; color: #856404; }
+  .rec-kill { background: #f8d7da; color: #721c24; }
+  .rec-creative { background: #d0e8f5; color: #0c5a8a; }
+  .rec-body { font-size: 12px; line-height: 1.5; color: #374151; }
+  .rec-body strong { display: block; font-weight: 700; color: #1a1a2e; margin-bottom: 2px; }
+
   footer { text-align: center; padding: 20px; font-size: 10px; color: #bdc3c7; }
 </style>
 </head>
@@ -442,26 +466,79 @@
     </table>
   </div>
 
-  <!-- ===== INSIGHTS ===== -->
-  <div class="summary-grid">
-    <div class="summary-card">
-      <h3>📊 Quick Summary</h3>
-      <div class="summary-item"><span class="label">Total Spend (14 days)</span><span class="val">$35.8K</span></div>
-      <div class="summary-item"><span class="label">Total Loan Apps</span><span class="val">101</span></div>
-      <div class="summary-item"><span class="label">Total Expected Value</span><span class="val">$1.2M</span></div>
-      <div class="summary-item"><span class="label">Blended ROAS</span><span class="val">33.3x</span></div>
-      <div class="summary-item"><span class="label">Meta Spend</span><span class="val">$5.7K (16%)</span></div>
-      <div class="summary-item"><span class="label">Google Spend</span><span class="val">$30.1K (84%)</span></div>
+  <!-- ===== ASSESSMENTS ===== -->
+  <div class="section-header" style="margin-top:32px">
+    <h2>Assessment</h2>
+  </div>
+
+  <div class="assessment-grid">
+
+    <!-- Category 1: Insights -->
+    <div class="assessment-card">
+      <div class="assessment-header insights-header">
+        <span class="assessment-icon">💡</span>
+        <div>
+          <div class="assessment-title">Category 1 — Insights</div>
+          <div class="assessment-sub">What the data is telling us</div>
+        </div>
+      </div>
+      <ol class="assessment-list">
+        <li><strong>70% of total EV</strong> comes from a single campaign — <em>Generic</em> ($835,043). Pipeline is highly concentrated.</li>
+        <li>Google takes <strong>84% of spend</strong> but delivers only <strong>24% of EV</strong>. Meta generates 76% of EV on 16% of spend — a significant efficiency gap.</li>
+        <li>Quality is polarized: <strong>2 campaign(s)</strong> averaging score ≥70 vs <strong>5</strong> below 50. High-score campaigns: Brokers, Expansion (FL, OH, NC) - Non-Brand Search.</li>
+        <li>Cost per app: Meta <strong>$131</strong> vs Google <strong>$527</strong>. Meta is 4.0x cheaper per application.</li>
+      </ol>
     </div>
-    <div class="summary-card">
-      <h3>🏆 Notable Performers</h3>
-      <div class="summary-item"><span class="label">Best ROAS</span><span class="val score-high">THMC_Meta_Generic_20260206... (207.9x)</span></div>
-      <div class="summary-item"><span class="label">Lowest ROAS</span><span class="val score-low">THMC_Google_Illinois Brand | Search... (0.1x)</span></div>
-      
-      <div class="summary-item"><span class="label">Meta Apps</span><span class="val">44 apps · $908.0K EV</span></div>
-      <div class="summary-item"><span class="label">Google Apps</span><span class="val">57 apps · $283.9K EV</span></div>
-      <div class="summary-item"><span class="label">Google Cost/App</span><span class="val">$527</span></div>
+
+    <!-- Category 2: Recommendations -->
+    <div class="assessment-card">
+      <div class="assessment-header recs-header">
+        <span class="assessment-icon">🎯</span>
+        <div>
+          <div class="assessment-title">Category 2 — Recommendations</div>
+          <div class="assessment-sub">Actions to take on campaigns</div>
+        </div>
+      </div>
+      <div class="rec-list">
+        
+        <div class="rec-item">
+          <span class="rec-tag rec-up">INCREASE</span>
+          <div class="rec-body">
+            <strong>Scale Generic (Meta)</strong>
+            <span>208x ROAS on $4,017 spend. Recommend <strong>+20% budget</strong> (max daily cap). Score 63 — quality is there.</span>
+          </div>
+        </div>
+        <div class="rec-item">
+          <span class="rec-tag rec-down">PAUSE</span>
+          <div class="rec-body">
+            <strong>Pause Illinois Brand | Search (Google)</strong>
+            <span>Only 0.1x ROAS on $728 spend with 1 app(s). Not generating pipeline at this cost. Pause and reallocate.</span>
+          </div>
+        </div>
+        <div class="rec-item">
+          <span class="rec-tag rec-creative">REACTIVATE</span>
+          <div class="rec-body">
+            <strong>Reactivate Generic (Meta)</strong>
+            <span>Paused but has 10 apps at score 66 and $47,674 EV. Strong quality signal — consider relaunching with refreshed creative.</span>
+          </div>
+        </div>
+        <div class="rec-item">
+          <span class="rec-tag rec-creative">REBALANCE</span>
+          <div class="rec-body">
+            <strong>Shift budget from Google → Meta</strong>
+            <span>Google is 84% of spend but Meta delivers 16.7x better ROAS. Recommend shifting 10–15% of Google budget to top Meta campaigns.</span>
+          </div>
+        </div>
+        <div class="rec-item">
+          <span class="rec-tag rec-creative">ITERATE</span>
+          <div class="rec-body">
+            <strong>Test new creative on Expansion (FL, OH, NC) - Non-Brand Search (Google)</strong>
+            <span>53x ROAS with score 73. Solid performer — introduce 1-2 new ad variations to test against current winner.</span>
+          </div>
+        </div>
+      </div>
     </div>
+
   </div>
 
 </div>
