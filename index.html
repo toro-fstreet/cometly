@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THMC Cometly Reports</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f4f5f7; color: #1a1a2e; }
+  header { background: #1a1a2e; color: white; padding: 20px 32px; }
+  header h1 { font-size: 20px; font-weight: 700; }
+  header .sub { font-size: 12px; color: #8892a4; margin-top: 4px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 32px; }
+  table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.08); font-size: 13px; }
+  thead th { background: #f8f9fb; padding: 11px 14px; text-align: left; font-size: 11px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid #eaedf0; }
+  tbody td { padding: 11px 14px; border-bottom: 1px solid #f0f2f5; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: #fafbfc; }
+  a { color: #457b9d; font-weight: 600; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .green { color: #2dc653; font-weight: 700; }
+</style>
+</head>
+<body>
+<header>
+  <h1>The Hard Money Co. — Cometly Report Archive</h1>
+  <div class="sub">Historical ad performance reports · Source: Cometly · Powered by Toro-Bot</div>
+</header>
+<div class="container">
+  <h2 style="font-size:14px;font-weight:700;margin-bottom:16px;color:#374151;">All Reports</h2>
+  <table id="reports-table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Range</th>
+        <th>Total Spend</th>
+        <th>Apps</th>
+        <th>Total EV</th>
+        <th>ROAS</th>
+        <th>Dashboard</th>
+        <th>Data</th>
+      </tr>
+    </thead>
+    <tbody id="reports-body">
+    </tbody>
+  </table>
+</div>
+<script>
+fetch('reports/history.csv')
+  .then(r => r.text())
+  .then(csv => {
+    const rows = csv.trim().split('\n').slice(1).reverse();
+    const tbody = document.getElementById('reports-body');
+    rows.forEach(row => {
+      const [date, days, ms, ma, mev, mr, gs, ga, gev, gr, ts, ta, tev, br] = row.split(',');
+      const fmt = n => '$' + parseFloat(n).toLocaleString('en-US', {maximumFractionDigits: 0});
+      tbody.innerHTML += `<tr>
+        <td>${date}</td>
+        <td>${days} days</td>
+        <td>${fmt(ts)}</td>
+        <td>${ta}</td>
+        <td class="green">${fmt(tev)}</td>
+        <td class="green">${parseFloat(br).toFixed(1)}x</td>
+        <td><a href="reports/${date}/">View →</a></td>
+        <td><a href="reports/${date}/data.json">JSON</a></td>
+      </tr>`;
+    });
+  });
+</script>
+</body>
+</html>

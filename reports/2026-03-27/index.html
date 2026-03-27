@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THMC Ad Performance — Last 14 Days</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f4f5f7; color: #1a1a2e; }
+  
+  header { background: #1a1a2e; color: white; padding: 20px 32px; display: flex; justify-content: space-between; align-items: center; }
+  header h1 { font-size: 20px; font-weight: 700; }
+  header .meta { font-size: 12px; color: #8892a4; margin-top: 3px; }
+  .badge { color: white; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 20px; }
+  .badge-meta { background: #1877f2; }
+  .badge-google { background: #ea4335; }
+
+  .container { max-width: 1500px; margin: 0 auto; padding: 24px 32px; }
+
+  /* KPI row */
+  .kpi-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 24px; }
+  .kpi { background: white; border-radius: 10px; padding: 14px 16px; border-left: 4px solid #1a1a2e; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .kpi.green { border-left-color: #2dc653; }
+  .kpi.blue { border-left-color: #457b9d; }
+  .kpi.yellow { border-left-color: #f4a261; }
+  .kpi.red { border-left-color: #e63946; }
+  .kpi label { font-size: 10px; font-weight: 700; color: #8892a4; text-transform: uppercase; letter-spacing: 0.6px; display: block; margin-bottom: 5px; }
+  .kpi .value { font-size: 22px; font-weight: 700; }
+  .kpi .sub { font-size: 10px; color: #8892a4; margin-top: 2px; }
+
+  .section-header { display: flex; align-items: center; gap: 12px; margin: 28px 0 14px; }
+  .section-header h2 { font-size: 16px; font-weight: 700; }
+  .ch-badge { padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+  .ch-meta { background: #e8f0fe; color: #1877f2; }
+  .ch-google { background: #fce8e6; color: #ea4335; }
+
+  .table-wrap { background: white; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); overflow: auto; margin-bottom: 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; min-width: 900px; }
+  thead th { background: #f8f9fb; padding: 10px 12px; font-size: 10px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; border-bottom: 2px solid #eaedf0; text-align: right; }
+  thead th:first-child, thead th:nth-child(2) { text-align: left; }
+  tbody tr { border-bottom: 1px solid #f0f2f5; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #fafbfc; }
+  tbody td { padding: 9px 12px; vertical-align: middle; }
+  tbody td.num { text-align: right; }
+  tbody td:first-child { font-weight: 600; color: #1a1a2e; max-width: 280px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  tbody tr.row-paused td { color: #9ca3af; }
+  tbody tr.row-paused td:first-child { color: #9ca3af; }
+  tfoot tr { border-top: 2px solid #eaedf0; background: #f8f9fb; }
+  tfoot td { padding: 9px 12px; font-weight: 700; font-size: 11px; text-align: right; }
+  tfoot td:first-child, tfoot td:nth-child(2) { text-align: left; }
+
+  .score-high { color: #2dc653; font-weight: 700; }
+  .score-mid { color: #f4a261; font-weight: 700; }
+  .score-low { color: #e63946; font-weight: 700; }
+  .roas-high { color: #2dc653; font-weight: 700; }
+  .roas-mid { color: #f4a261; font-weight: 700; }
+  .roas-low { color: #e63946; font-weight: 700; }
+  .dash { color: #d1d5db; }
+
+  .badge-active { background: #d4edda; color: #155724; font-size: 10px; padding: 2px 7px; border-radius: 10px; font-weight: 600; }
+  .badge-paused { background: #f0f2f5; color: #9ca3af; font-size: 10px; padding: 2px 7px; border-radius: 10px; font-weight: 600; }
+
+  /* Summary cards */
+  .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .summary-card { background: white; border-radius: 10px; padding: 18px 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .summary-card h3 { font-size: 12px; font-weight: 700; color: #8892a4; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 12px; }
+  .summary-item { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #f0f2f5; font-size: 12px; }
+  .summary-item:last-child { border-bottom: none; }
+  .summary-item .label { color: #4b5563; }
+  .summary-item .val { font-weight: 600; }
+
+  footer { text-align: center; padding: 20px; font-size: 10px; color: #bdc3c7; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>The Hard Money Co. — Ad Performance Dashboard</h1>
+    <div class="meta">Last 14 Days &nbsp;·&nbsp; Mar 13 – Mar 27, 2026 &nbsp;·&nbsp; Attribution: Last Touch LTV &nbsp;·&nbsp; Source: Cometly &nbsp;·&nbsp; Generated Mar 27, 11:00 AM CDT</div>
+  </div>
+  <div style="display:flex;gap:8px;align-items:center">
+    <span class="badge badge-meta">META</span>
+    <span class="badge badge-google">GOOGLE</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ===== COMBINED KPIs ===== -->
+  <div class="kpi-row" style="margin-top:24px">
+    <div class="kpi blue"><label>Total Spend</label><div class="value">$35.8K</div><div class="sub">Meta + Google</div></div>
+    <div class="kpi green"><label>Loan Apps</label><div class="value">101</div><div class="sub">Submitted</div></div>
+    <div class="kpi green"><label>Total Expected Value</label><div class="value">$1.2M</div><div class="sub">custom_event_21</div></div>
+    <div class="kpi yellow"><label>Blended ROAS</label><div class="value">33.3x</div><div class="sub">EV ÷ Spend</div></div>
+    <div class="kpi"><label>Closed Won</label><div class="value">5</div><div class="sub">All channels</div></div>
+  </div>
+
+  <!-- ===== META ===== -->
+  <div class="section-header">
+    <h2>Meta (Facebook/Instagram)</h2>
+    <span class="ch-badge ch-meta">📘 META ADS</span>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi blue"><label>Meta Spend</label><div class="value">$5.7K</div></div>
+    <div class="kpi green"><label>Loan Apps</label><div class="value">44</div></div>
+    <div class="kpi green"><label>Total EV</label><div class="value">$908.0K</div></div>
+    <div class="kpi yellow"><label>Blended ROAS</label><div class="value">158.1x</div></div>
+    <div class="kpi"><label>Prelim</label><div class="value">3</div></div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Campaign</th>
+          <th>Status</th>
+          <th>Spent</th>
+          <th>Apps</th>
+          <th>Prelim</th>
+          <th>Avg Score</th>
+          <th>Avg EV</th>
+          <th>Total EV</th>
+          <th>ROAS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="">
+      <td>THMC_Meta_Generic_20260206</td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$4,017</td>
+      <td class="num">23</td>
+      <td class="num">1</td>
+      <td class="num"><span class="score-mid">62.9</span></td>
+      <td class="num">$39.8K</td>
+      <td class="num">$835.0K</td>
+      <td class="num"><span class="roas-high">207.9x</span></td>
+    </tr>
+<tr class="">
+      <td>THMC_Meta_Generic_20251110_Copy_ABO</td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$632</td>
+      <td class="num">4</td>
+      <td class="num">—</td>
+      <td class="num"><span class="score-low">28.0</span></td>
+      <td class="num">$789</td>
+      <td class="num">$2.4K</td>
+      <td class="num"><span class="roas-low">3.7x</span></td>
+    </tr>
+<tr class="">
+      <td>THMC_Meta_Generic_20260313</td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$367</td>
+      <td class="num">3</td>
+      <td class="num">—</td>
+      <td class="num"><span class="score-mid">69.5</span></td>
+      <td class="num">$277</td>
+      <td class="num">$555</td>
+      <td class="num"><span class="roas-low">1.5x</span></td>
+    </tr>
+<tr class="">
+      <td>THMC_Meta_Brokers_20260304 _Angle_Test</td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$588</td>
+      <td class="num">2</td>
+      <td class="num">—</td>
+      <td class="num"><span class="score-high">78.0</span></td>
+      <td class="num">$10.2K</td>
+      <td class="num">$20.5K</td>
+      <td class="num"><span class="roas-high">34.8x</span></td>
+    </tr>
+<tr class="row-paused">
+      <td>THMC_Meta_Generic_20251203_Statics+Animated</td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">—</td>
+      <td class="num">1</td>
+      <td class="num">—</td>
+      <td class="num"><span class="score-mid">52.0</span></td>
+      <td class="num">$302</td>
+      <td class="num">$302</td>
+      <td class="num"><span class="dash">—</span></td>
+    </tr>
+<tr class="row-paused">
+      <td>THMC_Meta_Forecasa&ForecasaADV+</td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">$139</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="dash">—</span></td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="roas-low">—</span></td>
+    </tr>
+<tr class="row-paused">
+      <td>THMC_Meta_Milwaukee_20260106</td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="dash">—</span></td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="dash">—</span></td>
+    </tr>
+<tr class="row-paused">
+      <td>THMC_Meta_Brokers_20260106</td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="dash">—</span></td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="dash">—</span></td>
+    </tr>
+<tr class="row-paused">
+      <td>THMC_Meta_Generic_20251110</td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">—</td>
+      <td class="num">10</td>
+      <td class="num">2</td>
+      <td class="num"><span class="score-mid">65.8</span></td>
+      <td class="num">$6.0K</td>
+      <td class="num">$47.7K</td>
+      <td class="num"><span class="dash">—</span></td>
+    </tr>
+<tr class="row-paused">
+      <td>THMC_Meta_Generic_20251202_MNTN_Ad</td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">—</td>
+      <td class="num">1</td>
+      <td class="num">—</td>
+      <td class="num"><span class="score-low">48.0</span></td>
+      <td class="num">$1.6K</td>
+      <td class="num">$1.6K</td>
+      <td class="num"><span class="dash">—</span></td>
+    </tr>
+<tr class="row-paused">
+      <td>THMC_Meta_Generic_20251110 - Copy (RIQ Flippers)</td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="dash">—</span></td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="dash">—</span></td>
+    </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2">Totals</td>
+          <td class="num">$5,742</td>
+          <td class="num">44</td>
+          <td class="num">3</td>
+          <td class="num"><span class="score-mid">60.9</span></td>
+          <td class="num">—</td>
+          <td class="num">$908.0K</td>
+          <td class="num"><span class="roas-high">158.1x</span></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <!-- ===== GOOGLE ===== -->
+  <div class="section-header">
+    <h2>Google</h2>
+    <span class="ch-badge ch-google">🔴 GOOGLE ADS</span>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi blue"><label>Google Spend</label><div class="value">$30.1K</div></div>
+    <div class="kpi green"><label>Loan Apps</label><div class="value">57</div></div>
+    <div class="kpi green"><label>Total EV</label><div class="value">$283.9K</div></div>
+    <div class="kpi yellow"><label>Blended ROAS</label><div class="value">9.4x</div></div>
+    <div class="kpi"><label>Prelim</label><div class="value">7</div></div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Campaign</th>
+          <th>Status</th>
+          <th>Spent</th>
+          <th>Apps</th>
+          <th>Prelim</th>
+          <th>Avg Score</th>
+          <th>Avg EV</th>
+          <th>Total EV</th>
+          <th>ROAS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="">
+      <td>THMC_Google_Remarketing All Markets</td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$3,907</td>
+      <td class="num">16</td>
+      <td class="num">—</td>
+      <td class="num"><span class="score-low">36.1</span></td>
+      <td class="num">$588</td>
+      <td class="num">$7.1K</td>
+      <td class="num"><span class="roas-low">1.8x</span></td>
+    </tr>
+<tr class="">
+      <td>THMC_Google_Wisconsin | Brand | Search</td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$1,415</td>
+      <td class="num">5</td>
+      <td class="num">—</td>
+      <td class="num"><span class="score-low">31.4</span></td>
+      <td class="num">$877</td>
+      <td class="num">$3.5K</td>
+      <td class="num"><span class="roas-low">2.5x</span></td>
+    </tr>
+<tr class="">
+      <td>THMC_Google_Illinois Brand | Search</td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$728</td>
+      <td class="num">1</td>
+      <td class="num">—</td>
+      <td class="num"><span class="score-low">48.0</span></td>
+      <td class="num">$74</td>
+      <td class="num">$74</td>
+      <td class="num"><span class="roas-low">0.1x</span></td>
+    </tr>
+<tr class="">
+      <td>THMC_Google_Michigan | Brand | Search</td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$152</td>
+      <td class="num">1</td>
+      <td class="num">—</td>
+      <td class="num"><span class="score-mid">69.0</span></td>
+      <td class="num">$1.1K</td>
+      <td class="num">$1.1K</td>
+      <td class="num"><span class="roas-mid">7.5x</span></td>
+    </tr>
+<tr class="">
+      <td>THMC_Google_Expansion (FL, OH, NC) - Non-Brand Search</td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$3,528</td>
+      <td class="num">4</td>
+      <td class="num">1</td>
+      <td class="num"><span class="score-high">73.0</span></td>
+      <td class="num">$46.6K</td>
+      <td class="num">$186.3K</td>
+      <td class="num"><span class="roas-high">52.8x</span></td>
+    </tr>
+<tr class="">
+      <td>THMC_Google_Core Markets (WI, MI, IL) - Non-Brand Search</td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$11,909</td>
+      <td class="num">13</td>
+      <td class="num">4</td>
+      <td class="num"><span class="score-mid">60.8</span></td>
+      <td class="num">$4.4K</td>
+      <td class="num">$56.8K</td>
+      <td class="num"><span class="roas-low">4.8x</span></td>
+    </tr>
+<tr class="">
+      <td>THMC_Google_US | Brand | Search</td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$8,422</td>
+      <td class="num">16</td>
+      <td class="num">2</td>
+      <td class="num"><span class="score-mid">54.3</span></td>
+      <td class="num">$1.7K</td>
+      <td class="num">$27.9K</td>
+      <td class="num"><span class="roas-low">3.3x</span></td>
+    </tr>
+<tr class="row-paused">
+      <td>Performance Max - Core Markets (WI, MI, IL)</td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="dash">—</span></td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="dash">—</span></td>
+    </tr>
+<tr class="row-paused">
+      <td>THMC_Google_Demand Gen - All markets</td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">—</td>
+      <td class="num">1</td>
+      <td class="num">—</td>
+      <td class="num"><span class="score-mid">67.0</span></td>
+      <td class="num">$1.1K</td>
+      <td class="num">$1.1K</td>
+      <td class="num"><span class="dash">—</span></td>
+    </tr>
+<tr class="row-paused">
+      <td>Demand Gen All Markets - LAL</td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="dash">—</span></td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="dash">—</span></td>
+    </tr>
+<tr class="row-paused">
+      <td>THMC_Google_Demand Gen - Milwaukee</td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="dash">—</span></td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="dash">—</span></td>
+    </tr>
+<tr class="row-paused">
+      <td>North Carolina | YouTube #2</td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="dash">—</span></td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="dash">—</span></td>
+    </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2">Totals</td>
+          <td class="num">$30,061</td>
+          <td class="num">57</td>
+          <td class="num">7</td>
+          <td class="num"><span class="score-mid">50.3</span></td>
+          <td class="num">—</td>
+          <td class="num">$283.9K</td>
+          <td class="num"><span class="roas-mid">9.4x</span></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <!-- ===== INSIGHTS ===== -->
+  <div class="summary-grid">
+    <div class="summary-card">
+      <h3>📊 Quick Summary</h3>
+      <div class="summary-item"><span class="label">Total Spend (14 days)</span><span class="val">$35.8K</span></div>
+      <div class="summary-item"><span class="label">Total Loan Apps</span><span class="val">101</span></div>
+      <div class="summary-item"><span class="label">Total Expected Value</span><span class="val">$1.2M</span></div>
+      <div class="summary-item"><span class="label">Blended ROAS</span><span class="val">33.3x</span></div>
+      <div class="summary-item"><span class="label">Meta Spend</span><span class="val">$5.7K (16%)</span></div>
+      <div class="summary-item"><span class="label">Google Spend</span><span class="val">$30.1K (84%)</span></div>
+    </div>
+    <div class="summary-card">
+      <h3>🏆 Notable Performers</h3>
+      <div class="summary-item"><span class="label">Best ROAS</span><span class="val score-high">THMC_Meta_Generic_20260206... (207.9x)</span></div>
+      <div class="summary-item"><span class="label">Lowest ROAS</span><span class="val score-low">THMC_Google_Illinois Brand | Search... (0.1x)</span></div>
+      
+      <div class="summary-item"><span class="label">Meta Apps</span><span class="val">44 apps · $908.0K EV</span></div>
+      <div class="summary-item"><span class="label">Google Apps</span><span class="val">57 apps · $283.9K EV</span></div>
+      <div class="summary-item"><span class="label">Google Cost/App</span><span class="val">$527</span></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  The Hard Money Co. · Last 14 Days · Mar 13 – Mar 27, 2026 · Powered by Toro-Bot &amp; Cometly · Generated 3/27/2026, 11:00:29 AM
+</footer>
+</body>
+</html>
