@@ -1,0 +1,20 @@
+Run the Cometly 14-day report pipeline for The Hard Money Co.
+
+Attribution settings (set automatically by the scraper): Linear Paid model, 30-day attribution window.
+Date range: Last 14 Days (confirmed in scraper output).
+
+1. Run: node /Users/toro/.openclaw/workspace/cometly-scrape.js 14
+2. Run: node /Users/toro/.openclaw/workspace/cometly-build-dashboard.js
+3. Push to GitHub:
+   - REPO=/tmp/cometly-repo
+   - DATE=$(date +%Y-%m-%d)
+   - cd $REPO && git pull origin main
+   - mkdir -p $REPO/reports/${DATE}-14d
+   - cp /tmp/thmc-deploy/index.html $REPO/reports/${DATE}-14d/index.html
+   - cp /tmp/cometly-raw.json $REPO/reports/${DATE}-14d/data.json
+   - git add . && git commit -m "Report $DATE (14 days)" && git push origin main
+4. Post ONLY the GitHub Pages link to Slack channel C0AM1FYSA11 (#toro-peter):
+   https://toro-fstreet.github.io/cometly/reports/{DATE}-14d/index.html
+
+No summary. No data in Slack. Link only.
+
