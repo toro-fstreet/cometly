@@ -1,0 +1,112 @@
+{
+  "period": {
+    "start": "2026-04-03",
+    "end": "2026-04-17",
+    "days": 14
+  },
+  "summary": {
+    "total_spend": 16301.27,
+    "total_impressions": 281717,
+    "total_clicks": 8561,
+    "total_leads": 419,
+    "overall_ctr": 3.04,
+    "overall_cpm": 57.87,
+    "overall_cpc": 1.90,
+    "cost_per_lead": 38.91
+  },
+  "accounts": [
+    {
+      "name": "THMC",
+      "account_id": "act_850448857515247",
+      "spend": 8691.33,
+      "impressions": 159613,
+      "clicks": 3752,
+      "leads": 401,
+      "ctr": 2.35,
+      "cpm": 54.45,
+      "cpc": 2.32,
+      "cost_per_lead": 21.67,
+      "status": "active"
+    },
+    {
+      "name": "F Street",
+      "account_id": "act_317120362102215", 
+      "spend": 7207.16,
+      "impressions": 77447,
+      "clicks": 1223,
+      "leads": 18,
+      "ctr": 1.58,
+      "cpm": 93.06,
+      "cpc": 5.89,
+      "cost_per_lead": 400.40,
+      "status": "active"
+    },
+    {
+      "name": "Dubbel Dutch",
+      "account_id": "act_442084154783746",
+      "spend": 402.78,
+      "impressions": 44657,
+      "clicks": 3586,
+      "leads": 0,
+      "ctr": 8.03,
+      "cpm": 9.02,
+      "cpc": 0.11,
+      "cost_per_lead": null,
+      "status": "active"
+    },
+    {
+      "name": "The Hard Money Co.",
+      "account_id": "act_2932711756987955",
+      "spend": 0,
+      "impressions": 0,
+      "clicks": 0,
+      "leads": 0,
+      "ctr": 0,
+      "cpm": 0,
+      "cpc": 0,
+      "cost_per_lead": null,
+      "status": "inactive"
+    },
+    {
+      "name": "Draftline",
+      "account_id": "act_954974165119196",
+      "spend": 0,
+      "impressions": 0,
+      "clicks": 0,
+      "leads": 0,
+      "ctr": 0,
+      "cpm": 0,
+      "cpc": 0,
+      "cost_per_lead": null,
+      "status": "inactive"
+    },
+    {
+      "name": "Private Debt Fund", 
+      "account_id": "act_758925220499005",
+      "spend": 0,
+      "impressions": 0,
+      "clicks": 0,
+      "leads": 0,
+      "ctr": 0,
+      "cpm": 0,
+      "cpc": 0,
+      "cost_per_lead": null,
+      "status": "inactive"
+    },
+    {
+      "name": "Cashoutloans.com",
+      "account_id": "act_267456668718544",
+      "spend": 0,
+      "impressions": 0,
+      "clicks": 0,
+      "leads": 0,
+      "ctr": 0,
+      "cpm": 0,
+      "cpc": 0,
+      "cost_per_lead": null,
+      "status": "inactive"
+    }
+  ],
+  "generated_at": "2026-04-17T15:29:36-05:00",
+  "generated_by": "OpenClaw Assistant"
+}
