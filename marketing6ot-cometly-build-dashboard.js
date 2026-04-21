@@ -81,6 +81,7 @@ function hasData(cells) {
 function processRows(rows) {
   return rows
     .filter(r => r.cells.name && r.cells.name !== 'Totals' && hasData(r.cells))
+    .filter(r => r.cells.delivery && r.cells.delivery.toLowerCase().trim() === 'active')
     .map(r => {
       const c = r.cells;
       const spent = parseNum(c.amount_spent);
