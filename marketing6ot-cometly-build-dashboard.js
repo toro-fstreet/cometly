@@ -13,13 +13,13 @@ const SCRAPE_TIME = new Date(raw.scrapeTime || Date.now());
 
 // Calculate date range label
 const today = new Date();
-const daysMap = { 'Last 7 Days': 7, 'Last 14 Days': 14, 'Last 30 Days': 30 };
+const daysMap = { 'Last 7 Days': 7, 'Last 14 Days': 14, 'Last 30 Days': 30, 'Last 60 Days': 60, 'Last 90 Days': 90 };
 const days = daysMap[DATE_RANGE] || 14;
 const start = new Date(today); start.setDate(today.getDate() - days);
 const dateLabel = `${start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} – ${today.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}, ${today.getFullYear()}`;
 
 function parseNum(str) {
-  if (!str || str === '-' || str === '' || str === '$0.00' || str === '0') return 0;
+  if (!str || str === '-' || str === '' || str === '$0.00' || str === '0' || str === '-') return 0;
   return parseFloat(String(str).replace(/[$,]/g, '')) || 0;
 }
 
@@ -81,7 +81,6 @@ function hasData(cells) {
 function processRows(rows) {
   return rows
     .filter(r => r.cells.name && r.cells.name !== 'Totals' && hasData(r.cells))
-    .filter(r => r.cells.delivery && r.cells.delivery.toLowerCase().includes('active'))
     .map(r => {
       const c = r.cells;
       const spent = parseNum(c.amount_spent);
