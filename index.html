@@ -1,538 +1,526 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cometly Dashboard - Independent Account Analysis</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            overflow: hidden;
-        }
-        .header {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            font-weight: 700;
-        }
-        .header .subtitle {
-            margin: 15px 0 0 0;
-            opacity: 0.9;
-            font-size: 1.2em;
-        }
-        .content { padding: 40px; }
-        
-        .account-section {
-            margin-bottom: 60px;
-            border: 2px solid #e9ecef;
-            border-radius: 12px;
-            overflow: hidden;
-            background: white;
-        }
-        .account-header {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 25px;
-            border-bottom: 2px solid #dee2e6;
-        }
-        .account-title {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-        .account-summary {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        .summary-metric {
-            text-align: center;
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        .summary-metric .value {
-            font-size: 1.4em;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        .summary-metric .label {
-            font-size: 0.8em;
-            color: #6c757d;
-            text-transform: uppercase;
-            margin-top: 5px;
-        }
-        
-        .channels {
-            padding: 30px;
-        }
-        .channel {
-            margin-bottom: 30px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 25px;
-        }
-        .channel-title {
-            font-size: 1.2em;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
-        .channel-metrics {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        .channel-metric {
-            text-align: center;
-            background: white;
-            padding: 12px;
-            border-radius: 6px;
-        }
-        .channel-metric .value {
-            font-size: 1.1em;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        .channel-metric .label {
-            font-size: 0.75em;
-            color: #6c757d;
-            text-transform: uppercase;
-        }
-        
-        .campaigns {
-            background: white;
-            border-radius: 6px;
-            padding: 20px;
-        }
-        .campaigns h4 {
-            margin-bottom: 15px;
-            color: #2c3e50;
-            font-size: 1em;
-        }
-        .campaign {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 15px;
-            padding: 10px;
-            border-bottom: 1px solid #e9ecef;
-            align-items: center;
-        }
-        .campaign:last-child { border-bottom: none; }
-        .campaign-name { font-weight: 500; }
-        .campaign-metric { 
-            text-align: center; 
-            font-size: 0.9em;
-            color: #495057;
-        }
-        
-        .insights {
-            background: #fff3cd;
-            border-radius: 6px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-        .insights h4 {
-            color: #856404;
-            margin-bottom: 15px;
-        }
-        .insight {
-            background: white;
-            padding: 12px 15px;
-            border-radius: 4px;
-            margin: 8px 0;
-            border-left: 4px solid #ffc107;
-            font-size: 0.9em;
-        }
-        
-        .meta { border-left: 4px solid #1877f2; }
-        .google { border-left: 4px solid #4285f4; }
-        
-        @media (max-width: 768px) {
-            .account-summary { grid-template-columns: 1fr; }
-            .channel-metrics { grid-template-columns: 1fr; }
-            .campaign { grid-template-columns: 1fr; text-align: center; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THMC Ad Performance — Last 14 Days</title>
+<style>
+ * { box-sizing: border-box; margin: 0; padding: 0; }
+ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f4f5f7; color: #1a1a2e; }
+
+ header { background: #1a1a2e; color: white; padding: 20px 32px; display: flex; justify-content: space-between; align-items: center; }
+ header h1 { font-size: 20px; font-weight: 700; }
+ header .meta { font-size: 12px; color: #8892a4; margin-top: 3px; }
+ .badge { color: white; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 20px; }
+ .badge-meta { background: #1877f2; }
+ .badge-google { background: #ea4335; }
+
+ .container { max-width: 1500px; margin: 0 auto; padding: 24px 32px; }
+
+ /* KPI row */
+ .kpi-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 24px; }
+ .kpi { background: white; border-radius: 10px; padding: 14px 16px; border-left: 4px solid #1a1a2e; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+ .kpi.green { border-left-color: #2dc653; }
+ .kpi.blue { border-left-color: #457b9d; }
+ .kpi.yellow { border-left-color: #f4a261; }
+ .kpi.red { border-left-color: #e63946; }
+ .kpi label { font-size: 10px; font-weight: 700; color: #8892a4; text-transform: uppercase; letter-spacing: 0.6px; display: block; margin-bottom: 5px; }
+ .kpi .value { font-size: 22px; font-weight: 700; }
+ .kpi .sub { font-size: 10px; color: #8892a4; margin-top: 2px; }
+
+ .section-header { display: flex; align-items: center; gap: 12px; margin: 28px 0 14px; }
+ .section-header h2 { font-size: 16px; font-weight: 700; }
+ .ch-badge { padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+ .ch-meta { background: #e8f0fe; color: #1877f2; }
+ .ch-google { background: #fce8e6; color: #ea4335; }
+
+ .table-wrap { background: white; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); overflow: auto; margin-bottom: 20px; }
+ table { width: 100%; border-collapse: collapse; font-size: 12px; min-width: 900px; }
+ thead th { background: #f8f9fb; padding: 10px 12px; font-size: 10px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; border-bottom: 2px solid #eaedf0; text-align: right; }
+ thead th:first-child, thead th:nth-child(2) { text-align: left; }
+ tbody tr { border-bottom: 1px solid #f0f2f5; }
+ tbody tr:last-child { border-bottom: none; }
+ tbody tr:hover { background: #fafbfc; }
+ tbody td { padding: 9px 12px; vertical-align: middle; }
+ tbody td.num { text-align: right; }
+ tbody td:first-child { font-weight: 600; color: #1a1a2e; max-width: 280px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+ tbody td:first-child a { color: #1a1a2e; text-decoration: none; font-weight: 600; }
+ tbody td:first-child a:hover { color: #457b9d; text-decoration: underline; }
+ tbody tr.row-paused td { color: #9ca3af; }
+ tbody tr.row-paused td:first-child { color: #9ca3af; }
+ tbody tr.row-flagged { background: #fffbeb; }
+ .flag-note { font-size: 10px; color: #92400e; font-weight: 500; margin-top: 3px; }
+ .data-flag { cursor: help; }
+ tfoot tr { border-top: 2px solid #eaedf0; background: #f8f9fb; }
+ tfoot td { padding: 9px 12px; font-weight: 700; font-size: 11px; text-align: right; }
+ tfoot td:first-child, tfoot td:nth-child(2) { text-align: left; }
+
+ .score-high { color: #2dc653; font-weight: 700; }
+ .score-mid { color: #f4a261; font-weight: 700; }
+ .score-low { color: #e63946; font-weight: 700; }
+ .roas-high { color: #2dc653; font-weight: 700; }
+ .roas-mid { color: #f4a261; font-weight: 700; }
+ .roas-low { color: #e63946; font-weight: 700; }
+ .dash { color: #d1d5db; }
+
+ .badge-active { background: #d4edda; color: #155724; font-size: 10px; padding: 2px 7px; border-radius: 10px; font-weight: 600; }
+ .badge-paused { background: #f0f2f5; color: #9ca3af; font-size: 10px; padding: 2px 7px; border-radius: 10px; font-weight: 600; }
+
+ /* Summary cards */
+ .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+ .summary-card { background: white; border-radius: 10px; padding: 18px 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+ .summary-card h3 { font-size: 12px; font-weight: 700; color: #8892a4; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 12px; }
+ .summary-item { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #f0f2f5; font-size: 12px; }
+ .summary-item:last-child { border-bottom: none; }
+ .summary-item .label { color: #4b5563; }
+ .summary-item .val { font-weight: 600; }
+
+ /* Assessment section */
+ .assessment-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; align-items: start; }
+ .assessment-card { background: white; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); overflow: hidden; }
+ .assessment-header { display: flex; align-items: center; gap: 10px; padding: 14px 20px; border-bottom: 1px solid #eaedf0; }
+ .insights-header { background: #f0fdf4; }
+ .recs-header { background: #fef9f0; }
+ .assessment-icon { font-size: 18px; }
+ .assessment-title { font-size: 13px; font-weight: 700; color: #1a1a2e; }
+ .assessment-list { list-style: none; padding: 0; counter-reset: insight-counter; }
+ .assessment-list li { counter-increment: insight-counter; display: flex; gap: 12px; padding: 13px 20px; border-bottom: 1px solid #f0f2f5; font-size: 12px; line-height: 1.6; color: #374151; }
+ .assessment-list li:last-child { border-bottom: none; }
+ .assessment-list li::before { content: counter(insight-counter); background: #e8f5e9; color: #2dc653; font-weight: 700; font-size: 10px; min-width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+ .rec-list { padding: 0; }
+ .rec-item { display: flex; gap: 12px; padding: 13px 20px; border-bottom: 1px solid #f0f2f5; align-items: flex-start; }
+ .rec-item:last-child { border-bottom: none; }
+ .rec-tag { font-size: 9px; font-weight: 700; padding: 3px 7px; border-radius: 4px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+ .rec-up { background: #d4edda; color: #155724; }
+ .rec-down { background: #fff3cd; color: #856404; }
+ .rec-kill { background: #f8d7da; color: #721c24; }
+ .rec-creative { background: #d0e8f5; color: #0c5a8a; }
+ .rec-watch { background: #ede9fe; color: #5b21b6; }
+ .rec-body { font-size: 12px; line-height: 1.6; color: #374151; }
+ .rec-body strong { display: block; font-weight: 700; color: #1a1a2e; margin-bottom: 2px; }
+
+ footer { text-align: center; padding: 20px; font-size: 10px; color: #bdc3c7; }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🏢 Cometly Independent Account Analysis</h1>
-            <div class="subtitle">April 13-20, 2026 | Campaign-Level Performance</div>
-        </div>
-        
-        <div class="content">
-            <div class="account-section">
-                <div class="account-header">
-                    <h2 class="account-title">F Street</h2>
-                    <div class="account-summary">
-                        <div class="summary-metric">
-                            <div class="value">$4,219</div>
-                            <div class="label">Total Spend</div>
-                        </div>
-                        <div class="summary-metric">
-                            <div class="value">9.8</div>
-                            <div class="label">Applications</div>
-                        </div>
-                        <div class="summary-metric">
-                            <div class="value">$431</div>
-                            <div class="label">Cost per App</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="channels">
-                    <div class="channel meta">
-                        <h3 class="channel-title">🔵 META Campaigns</h3>
-                        <div class="channel-metrics">
-                            <div class="channel-metric">
-                                <div class="value">$3,329</div>
-                                <div class="label">Spend</div>
-                            </div>
-                            <div class="channel-metric">
-                                <div class="value">8.5</div>
-                                <div class="label">Applications</div>
-                            </div>
-                            <div class="channel-metric">
-                                <div class="value">$392</div>
-                                <div class="label">Cost per App</div>
-                            </div>
-                        </div>
-                        
-                        <div class="campaigns">
-                            <h4>Campaign Performance Breakdown</h4>
-                            <div class="campaign" style="font-weight: bold; border-bottom: 2px solid #dee2e6;">
-                                <div>Campaign Name</div>
-                                <div>Spend</div>
-                                <div>Applications</div>
-                                <div>Cost/App</div>
-                            </div>
-                            <div class="campaign">
-                                <div class="campaign-name">F Street - Lead Gen - Lookalike</div>
-                                <div class="campaign-metric">$1,450</div>
-                                <div class="campaign-metric">4.2</div>
-                                <div class="campaign-metric">$345</div>
-                            </div>
-                            <div class="campaign">
-                                <div class="campaign-name">F Street - Interest Targeting</div>
-                                <div class="campaign-metric">$980</div>
-                                <div class="campaign-metric">2.1</div>
-                                <div class="campaign-metric">$467</div>
-                            </div>
-                            <div class="campaign">
-                                <div class="campaign-name">F Street - Retargeting</div>
-                                <div class="campaign-metric">$899</div>
-                                <div class="campaign-metric">2.2</div>
-                                <div class="campaign-metric">$408</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="channel google">
-                        <h3 class="channel-title">🟡 GOOGLE Campaigns</h3>
-                        <div class="channel-metrics">
-                            <div class="channel-metric">
-                                <div class="value">$890</div>
-                                <div class="label">Spend</div>
-                            </div>
-                            <div class="channel-metric">
-                                <div class="value">1.3</div>
-                                <div class="label">Applications</div>
-                            </div>
-                            <div class="channel-metric">
-                                <div class="value">$685</div>
-                                <div class="label">Cost per App</div>
-                            </div>
-                        </div>
-                        
-                        <div class="campaigns">
-                            <h4>Campaign Performance Breakdown</h4>
-                            <div class="campaign" style="font-weight: bold; border-bottom: 2px solid #dee2e6;">
-                                <div>Campaign Name</div>
-                                <div>Spend</div>
-                                <div>Applications</div>
-                                <div>Cost/App</div>
-                            </div>
-                            <div class="campaign">
-                                <div class="campaign-name">F Street - Brand Terms</div>
-                                <div class="campaign-metric">$245</div>
-                                <div class="campaign-metric">0.8</div>
-                                <div class="campaign-metric">$307</div>
-                            </div>
-                            <div class="campaign">
-                                <div class="campaign-name">F Street - Commercial Intent</div>
-                                <div class="campaign-metric">$645</div>
-                                <div class="campaign-metric">0.5</div>
-                                <div class="campaign-metric">$1290</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="insights">
-                        <h4>🎯 F Street Optimization Insights</h4><div class="insight">Lookalike campaigns performing best at $345 cost/app</div><div class="insight">Google commercial intent keywords need optimization - $1,290 cost/app</div><div class="insight">Retargeting showing consistent performance - scale opportunity</div>
-                    </div>
-                </div>
-            </div>
-            <div class="account-section">
-                <div class="account-header">
-                    <h2 class="account-title">The Hard Money Company (THMC)</h2>
-                    <div class="account-summary">
-                        <div class="summary-metric">
-                            <div class="value">$5,191</div>
-                            <div class="label">Total Spend</div>
-                        </div>
-                        <div class="summary-metric">
-                            <div class="value">49.5</div>
-                            <div class="label">Applications</div>
-                        </div>
-                        <div class="summary-metric">
-                            <div class="value">$105</div>
-                            <div class="label">Cost per App</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="channels">
-                    <div class="channel meta">
-                        <h3 class="channel-title">🔵 META Campaigns</h3>
-                        <div class="channel-metrics">
-                            <div class="channel-metric">
-                                <div class="value">$3,941</div>
-                                <div class="label">Spend</div>
-                            </div>
-                            <div class="channel-metric">
-                                <div class="value">46.3</div>
-                                <div class="label">Applications</div>
-                            </div>
-                            <div class="channel-metric">
-                                <div class="value">$85</div>
-                                <div class="label">Cost per App</div>
-                            </div>
-                        </div>
-                        
-                        <div class="campaigns">
-                            <h4>Campaign Performance Breakdown</h4>
-                            <div class="campaign" style="font-weight: bold; border-bottom: 2px solid #dee2e6;">
-                                <div>Campaign Name</div>
-                                <div>Spend</div>
-                                <div>Applications</div>
-                                <div>Cost/App</div>
-                            </div>
-                            <div class="campaign">
-                                <div class="campaign-name">THMC - Real Estate Investors</div>
-                                <div class="campaign-metric">$1,890</div>
-                                <div class="campaign-metric">28.5</div>
-                                <div class="campaign-metric">$66</div>
-                            </div>
-                            <div class="campaign">
-                                <div class="campaign-name">THMC - Property Flippers</div>
-                                <div class="campaign-metric">$1,245</div>
-                                <div class="campaign-metric">12.8</div>
-                                <div class="campaign-metric">$97</div>
-                            </div>
-                            <div class="campaign">
-                                <div class="campaign-name">THMC - Commercial RE</div>
-                                <div class="campaign-metric">$805</div>
-                                <div class="campaign-metric">5.0</div>
-                                <div class="campaign-metric">$161</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="channel google">
-                        <h3 class="channel-title">🟡 GOOGLE Campaigns</h3>
-                        <div class="channel-metrics">
-                            <div class="channel-metric">
-                                <div class="value">$1,250</div>
-                                <div class="label">Spend</div>
-                            </div>
-                            <div class="channel-metric">
-                                <div class="value">3.2</div>
-                                <div class="label">Applications</div>
-                            </div>
-                            <div class="channel-metric">
-                                <div class="value">$391</div>
-                                <div class="label">Cost per App</div>
-                            </div>
-                        </div>
-                        
-                        <div class="campaigns">
-                            <h4>Campaign Performance Breakdown</h4>
-                            <div class="campaign" style="font-weight: bold; border-bottom: 2px solid #dee2e6;">
-                                <div>Campaign Name</div>
-                                <div>Spend</div>
-                                <div>Applications</div>
-                                <div>Cost/App</div>
-                            </div>
-                            <div class="campaign">
-                                <div class="campaign-name">THMC - Hard Money Loans</div>
-                                <div class="campaign-metric">$680</div>
-                                <div class="campaign-metric">2.1</div>
-                                <div class="campaign-metric">$324</div>
-                            </div>
-                            <div class="campaign">
-                                <div class="campaign-name">THMC - Bridge Loans</div>
-                                <div class="campaign-metric">$570</div>
-                                <div class="campaign-metric">1.1</div>
-                                <div class="campaign-metric">$518</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="insights">
-                        <h4>🎯 The Hard Money Company (THMC) Optimization Insights</h4><div class="insight">Real Estate Investors campaign is the star performer at $66 cost/app</div><div class="insight">Meta significantly outperforming Google across all campaigns</div><div class="insight">Commercial RE showing higher cost but quality leads - monitor conversion rates</div>
-                    </div>
-                </div>
-            </div>
-            <div class="account-section">
-                <div class="account-header">
-                    <h2 class="account-title">Private Debt Fund</h2>
-                    <div class="account-summary">
-                        <div class="summary-metric">
-                            <div class="value">$2,450</div>
-                            <div class="label">Total Spend</div>
-                        </div>
-                        <div class="summary-metric">
-                            <div class="value">5.8</div>
-                            <div class="label">Applications</div>
-                        </div>
-                        <div class="summary-metric">
-                            <div class="value">$422</div>
-                            <div class="label">Cost per App</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="channels">
-                    <div class="channel meta">
-                        <h3 class="channel-title">🔵 META Campaigns</h3>
-                        <div class="channel-metrics">
-                            <div class="channel-metric">
-                                <div class="value">$2,450</div>
-                                <div class="label">Spend</div>
-                            </div>
-                            <div class="channel-metric">
-                                <div class="value">5.8</div>
-                                <div class="label">Applications</div>
-                            </div>
-                            <div class="channel-metric">
-                                <div class="value">$422</div>
-                                <div class="label">Cost per App</div>
-                            </div>
-                        </div>
-                        
-                        <div class="campaigns">
-                            <h4>Campaign Performance Breakdown</h4>
-                            <div class="campaign" style="font-weight: bold; border-bottom: 2px solid #dee2e6;">
-                                <div>Campaign Name</div>
-                                <div>Spend</div>
-                                <div>Applications</div>
-                                <div>Cost/App</div>
-                            </div>
-                            <div class="campaign">
-                                <div class="campaign-name">PDF - Accredited Investors</div>
-                                <div class="campaign-metric">$1,340</div>
-                                <div class="campaign-metric">3.8</div>
-                                <div class="campaign-metric">$353</div>
-                            </div>
-                            <div class="campaign">
-                                <div class="campaign-name">PDF - High Net Worth</div>
-                                <div class="campaign-metric">$1,110</div>
-                                <div class="campaign-metric">2.0</div>
-                                <div class="campaign-metric">$555</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="insights">
-                        <h4>🎯 Private Debt Fund Optimization Insights</h4><div class="insight">Accredited Investors targeting showing better efficiency</div><div class="insight">High Net Worth segment expensive but potentially high LTV</div><div class="insight">Consider expanding Accredited Investors budget allocation</div>
-                    </div>
-                </div>
-            </div>
-            <div class="account-section">
-                <div class="account-header">
-                    <h2 class="account-title">Dubbel Dutch</h2>
-                    <div class="account-summary">
-                        <div class="summary-metric">
-                            <div class="value">$210</div>
-                            <div class="label">Total Spend</div>
-                        </div>
-                        <div class="summary-metric">
-                            <div class="value">2.1</div>
-                            <div class="label">Applications</div>
-                        </div>
-                        <div class="summary-metric">
-                            <div class="value">$100</div>
-                            <div class="label">Cost per App</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="channels">
-                    <div class="channel meta">
-                        <h3 class="channel-title">🔵 META Campaigns</h3>
-                        <div class="channel-metrics">
-                            <div class="channel-metric">
-                                <div class="value">$210</div>
-                                <div class="label">Spend</div>
-                            </div>
-                            <div class="channel-metric">
-                                <div class="value">2.1</div>
-                                <div class="label">Applications</div>
-                            </div>
-                            <div class="channel-metric">
-                                <div class="value">$100</div>
-                                <div class="label">Cost per App</div>
-                            </div>
-                        </div>
-                        
-                        <div class="campaigns">
-                            <h4>Campaign Performance Breakdown</h4>
-                            <div class="campaign" style="font-weight: bold; border-bottom: 2px solid #dee2e6;">
-                                <div>Campaign Name</div>
-                                <div>Spend</div>
-                                <div>Applications</div>
-                                <div>Cost/App</div>
-                            </div>
-                            <div class="campaign">
-                                <div class="campaign-name">Dubbel Dutch - App Downloads</div>
-                                <div class="campaign-metric">$125</div>
-                                <div class="campaign-metric">1.5</div>
-                                <div class="campaign-metric">$84</div>
-                            </div>
-                            <div class="campaign">
-                                <div class="campaign-name">Dubbel Dutch - Engagement</div>
-                                <div class="campaign-metric">$85</div>
-                                <div class="campaign-metric">0.6</div>
-                                <div class="campaign-metric">$141</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="insights">
-                        <h4>🎯 Dubbel Dutch Optimization Insights</h4><div class="insight">App Downloads campaign most efficient at $84 cost/app</div><div class="insight">Small spend but strong performance - test budget increase</div><div class="insight">Engagement campaign needs creative refresh</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div style="text-align: center; padding: 30px; background: #f8f9fa; color: #6c757d;">
-            Last updated: 2026-04-20 12:00:32 CDT<br>
-            <strong>Note:</strong> Each account analyzed independently with campaign-level breakdowns
-        </div>
-    </div>
+
+<header>
+ <div>
+ <h1>The Hard Money Co. — Ad Performance Dashboard</h1>
+ <div class="meta">Last 14 Days &nbsp;·&nbsp; Apr 7 – Apr 21, 2026 &nbsp;·&nbsp; Attribution: Last Touch LTV &nbsp;·&nbsp; Source: Cometly &nbsp;·&nbsp; Generated Apr 20, 4:29 PM CDT</div>
+ </div>
+ <div style="display:flex;gap:10px;align-items:center">
+ <a href="https://app.cometly.com/ad_accounts/fb_3377699796000006" target="_blank" rel="noopener" style="background:#1877f2;color:white;font-size:11px;font-weight:700;padding:6px 14px;border-radius:6px;text-decoration:none;">📘 Cometly Meta</a>
+ <a href="https://app.cometly.com/ad_accounts/gg_3377699775000010" target="_blank" rel="noopener" style="background:#ea4335;color:white;font-size:11px;font-weight:700;padding:6px 14px;border-radius:6px;text-decoration:none;">🔴 Cometly Google</a>
+ </div>
+</header>
+
+<div class="container">
+
+ <!-- ===== COMBINED KPIs ===== -->
+ <div class="kpi-row" style="margin-top:24px">
+ <div class="kpi blue"><label>Total Spend</label><div class="value">$35.2K</div><div class="sub">Meta + Google</div></div>
+ <div class="kpi green"><label>Loan Apps</label><div class="value">91.9</div><div class="sub">Submitted</div></div>
+ <div class="kpi green"><label>Total Expected Value</label><div class="value">$470.9K</div><div class="sub">custom_event_21</div></div>
+ <div class="kpi yellow"><label>Blended ROAS</label><div class="value">13.4x</div><div class="sub">EV ÷ Spend</div></div>
+ <div class="kpi"><label>Closed Won</label><div class="value">—</div><div class="sub">All channels</div></div>
+ </div>
+
+ <!-- ===== META ===== -->
+ <div class="section-header">
+ <h2>Meta (Facebook/Instagram)</h2>
+ <span class="ch-badge ch-meta">📘 META ADS</span>
+ </div>
+
+ <div class="kpi-row">
+ <div class="kpi blue"><label>Meta Spend</label><div class="value">$4.9K</div></div>
+ <div class="kpi green"><label>Loan Apps</label><div class="value">42.0</div></div>
+ <div class="kpi green"><label>Total EV</label><div class="value">$246.5K</div></div>
+ <div class="kpi yellow"><label>Blended ROAS</label><div class="value">50.8x</div></div>
+ <div class="kpi"><label>Daily Budget</label><div class="value">$417.0</div><div class="sub">/day total</div></div>
+ </div>
+
+ <div class="table-wrap">
+ <table>
+ <thead>
+ <tr>
+ <th>Ad</th>
+ <th>Status</th>
+ <th>Daily Budget</th>
+ <th>Spent</th>
+ <th>Apps</th>
+ <th>Cost/App</th>
+ <th>Avg Score</th>
+ <th>Avg EV</th>
+ <th>Total EV</th>
+ <th>ROAS</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr class="">
+ <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120240910588080031%22&selected_adset_ids=120240910588080031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_Under_Contract_Emma_Caps ↗</a></td>
+ <td><span class="badge-active">Active</span></td>
+ <td class="num">$50.0/day</td>
+ <td class="num">$566.9</td>
+ <td class="num">8.7</td>
+ <td class="num">$65.4</td>
+ <td class="num"><span class="score-mid">63.2</span></td>
+ <td class="num">$1.9K</td>
+ <td class="num">$16.1K</td>
+ <td class="num"><span class="roas-high">28.4x</span></td>
+ </tr>
+<tr class="">
+ <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120241515304800031%22&selected_adset_ids=120241515304800031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_Experienced_Emma ↗</a></td>
+ <td><span class="badge-active">Active</span></td>
+ <td class="num">$55.0/day</td>
+ <td class="num">$754.6</td>
+ <td class="num">8.3</td>
+ <td class="num">$90.6</td>
+ <td class="num"><span class="score-mid">62.0</span></td>
+ <td class="num">$17.7K</td>
+ <td class="num">$147.8K</td>
+ <td class="num"><span class="roas-high">195.9x</span></td>
+ </tr>
+<tr class="">
+ <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120240911215300031%22&selected_adset_ids=120240911215300031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_Under_Contract_Emma_No_Caps ↗</a></td>
+ <td><span class="badge-active">Active</span></td>
+ <td class="num">$50.0/day</td>
+ <td class="num">$567.6</td>
+ <td class="num">8.0</td>
+ <td class="num">$71.0</td>
+ <td class="num"><span class="score-mid">62.8</span></td>
+ <td class="num">$1.7K</td>
+ <td class="num">$13.3K</td>
+ <td class="num"><span class="roas-high">23.4x</span></td>
+ </tr>
+<tr class="">
+ <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120241939706090031%22&selected_adset_ids=120241939706090031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_FdUp ↗</a></td>
+ <td><span class="badge-active">Active</span></td>
+ <td class="num">$32.0/day</td>
+ <td class="num">$428.9</td>
+ <td class="num">4.5</td>
+ <td class="num">$95.3</td>
+ <td class="num"><span class="score-mid">54.4</span></td>
+ <td class="num">$3.0K</td>
+ <td class="num">$13.6K</td>
+ <td class="num"><span class="roas-high">31.7x</span></td>
+ </tr>
+<tr class="">
+ <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120242145105080031%22&selected_adset_ids=120242145105080031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_Emma_In_House ↗</a></td>
+ <td><span class="badge-active">Active</span></td>
+ <td class="num">$30.0/day</td>
+ <td class="num">$354.3</td>
+ <td class="num">3.5</td>
+ <td class="num">$102.5</td>
+ <td class="num"><span class="score-mid">56.5</span></td>
+ <td class="num">$6.4K</td>
+ <td class="num">$22.0K</td>
+ <td class="num"><span class="roas-high">62.1x</span></td>
+ </tr>
+<tr class="">
+ <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120240548660800031%22&selected_adset_ids=120240548660800031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_Distressed_Asset ↗</a></td>
+ <td><span class="badge-active">Active</span></td>
+ <td class="num">$50.0/day</td>
+ <td class="num">$646.5</td>
+ <td class="num">3.0</td>
+ <td class="num">$215.5</td>
+ <td class="num"><span class="score-mid">52.0</span></td>
+ <td class="num">$116.2</td>
+ <td class="num">$116.2</td>
+ <td class="num"><span class="roas-low">0.2x</span></td>
+ </tr>
+<tr class="">
+ <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120242234014210031%22&selected_adset_ids=120242234014210031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">THMC_RipCorner_Static_20260410 ↗</a></td>
+ <td><span class="badge-active">Active</span></td>
+ <td class="num">$60.0/day</td>
+ <td class="num">$481.6</td>
+ <td class="num">3.0</td>
+ <td class="num">$160.5</td>
+ <td class="num"><span class="score-mid">67.0</span></td>
+ <td class="num">$10.6K</td>
+ <td class="num">$31.8K</td>
+ <td class="num"><span class="roas-high">65.9x</span></td>
+ </tr>
+<tr class="">
+ <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120242186503670031%22&selected_adset_ids=120242186503670031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_FdUp_Short ↗</a></td>
+ <td><span class="badge-active">Active</span></td>
+ <td class="num">$30.0/day</td>
+ <td class="num">$333.9</td>
+ <td class="num">2.0</td>
+ <td class="num">$167.0</td>
+ <td class="num"><span class="score-mid">64.5</span></td>
+ <td class="num">$837.8</td>
+ <td class="num">$1.7K</td>
+ <td class="num"><span class="roas-mid">5.0x</span></td>
+ </tr>
+<tr class="">
+ <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120242085807140031%22&selected_adset_ids=120242085807140031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Form_Selfie_Style_AI ↗</a></td>
+ <td><span class="badge-active">Active</span></td>
+ <td class="num">$30.0/day</td>
+ <td class="num">$391.1</td>
+ <td class="num">1.0</td>
+ <td class="num">$391.1</td>
+ <td class="num"><span class="score-mid">51.0</span></td>
+ <td class="num">$165.1</td>
+ <td class="num">$165.1</td>
+ <td class="num"><span class="roas-low">0.4x</span></td>
+ </tr>
+<tr class="">
+ <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120242186731040031%22&selected_adset_ids=120242186731040031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Form_Explainer_9:16_30sec ↗</a></td>
+ <td><span class="badge-active">Active</span></td>
+ <td class="num">$30.0/day</td>
+ <td class="num">$327.3</td>
+ <td class="num">—</td>
+ <td class="num">—</td>
+ <td class="num"><span class="dash">—</span></td>
+ <td class="num">—</td>
+ <td class="num">—</td>
+ <td class="num"><span class="roas-low">—</span></td>
+ </tr>
+ </tbody>
+ <tfoot>
+ <tr>
+ <td colspan="2">Totals</td>
+ <td class="num">$417.0/day</td>
+ <td class="num">$4853.0</td>
+ <td class="num">42.0</td>
+ <td class="num">$115.7</td>
+ <td class="num"><span class="score-mid">60.6</span></td>
+ <td class="num">—</td>
+ <td class="num">$246.5K</td>
+ <td class="num"><span class="roas-high">50.8x</span></td>
+ </tr>
+ </tfoot>
+ </table>
+ </div>
+
+ <!-- ===== GOOGLE ===== -->
+ <div class="section-header">
+ <h2>Google</h2>
+ <span class="ch-badge ch-google">🔴 GOOGLE ADS</span>
+ </div>
+
+ <div class="kpi-row">
+ <div class="kpi blue"><label>Google Spend</label><div class="value">$30.4K</div></div>
+ <div class="kpi green"><label>Loan Apps</label><div class="value">49.9</div></div>
+ <div class="kpi green"><label>Total EV</label><div class="value">$224.5K</div></div>
+ <div class="kpi yellow"><label>Blended ROAS</label><div class="value">7.4x</div></div>
+ 
+ </div>
+
+ <div class="table-wrap">
+ <table>
+ <thead>
+ <tr>
+ <th>Ad</th>
+ <th>Status</th>
+ 
+ <th>Spent</th>
+ <th>Apps</th>
+ <th>Cost/App</th>
+ <th>Avg Score</th>
+ <th>Avg EV</th>
+ <th>Total EV</th>
+ <th>ROAS</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr class="">
+ <td>THMC_Google_US_Brand_Search</td>
+ <td><span class="badge-active">Active</span></td>
+ 
+ <td class="num">$10017.8</td>
+ <td class="num">18.8</td>
+ <td class="num">$533.8</td>
+ <td class="num"><span class="score-mid">56.7</span></td>
+ <td class="num">$7.9K</td>
+ <td class="num">$140.4K</td>
+ <td class="num"><span class="roas-mid">14.0x</span></td>
+ </tr>
+<tr class="">
+ <td>THMC_Google_CoreMarkets_NonBrand_Search</td>
+ <td><span class="badge-active">Active</span></td>
+ 
+ <td class="num">$10429.5</td>
+ <td class="num">13.1</td>
+ <td class="num">$796.1</td>
+ <td class="num"><span class="score-mid">50.0</span></td>
+ <td class="num">$1.6K</td>
+ <td class="num">$17.3K</td>
+ <td class="num"><span class="roas-low">1.7x</span></td>
+ </tr>
+<tr class="">
+ <td>THMC_Google_Remarketing_AllUsers</td>
+ <td><span class="badge-active">Active</span></td>
+ 
+ <td class="num">$5053.9</td>
+ <td class="num">6.1</td>
+ <td class="num">$825.1</td>
+ <td class="num"><span class="score-low">47.2</span></td>
+ <td class="num">$6.5K</td>
+ <td class="num">$33.5K</td>
+ <td class="num"><span class="roas-mid">6.6x</span></td>
+ </tr>
+<tr class="">
+ <td>THMC_Google_Expansion_NonBrand_Search</td>
+ <td><span class="badge-active">Active</span></td>
+ 
+ <td class="num">$2192.2</td>
+ <td class="num">5.4</td>
+ <td class="num">$405.1</td>
+ <td class="num"><span class="score-mid">62.0</span></td>
+ <td class="num">$1.8K</td>
+ <td class="num">$9.6K</td>
+ <td class="num"><span class="roas-low">4.4x</span></td>
+ </tr>
+<tr class="">
+ <td>THMC_Google_Wisconsin_Brand_Search</td>
+ <td><span class="badge-active">Active</span></td>
+ 
+ <td class="num">$1458.1</td>
+ <td class="num">4.5</td>
+ <td class="num">$324.4</td>
+ <td class="num"><span class="score-mid">66.2</span></td>
+ <td class="num">$3.4K</td>
+ <td class="num">$15.5K</td>
+ <td class="num"><span class="roas-mid">10.6x</span></td>
+ </tr>
+<tr class="">
+ <td>THMC_Google_Michigan_Brand_Search</td>
+ <td><span class="badge-active">Active</span></td>
+ 
+ <td class="num">$280.3</td>
+ <td class="num">2.0</td>
+ <td class="num">$140.2</td>
+ <td class="num"><span class="score-high">72.5</span></td>
+ <td class="num">$4.1K</td>
+ <td class="num">$8.2K</td>
+ <td class="num"><span class="roas-high">29.3x</span></td>
+ </tr>
+<tr class="">
+ <td>THMC_Google_Illinois_Brand_Search</td>
+ <td><span class="badge-active">Active</span></td>
+ 
+ <td class="num">$934.2</td>
+ <td class="num">—</td>
+ <td class="num">—</td>
+ <td class="num"><span class="dash">—</span></td>
+ <td class="num">—</td>
+ <td class="num">—</td>
+ <td class="num"><span class="roas-low">—</span></td>
+ </tr>
+ </tbody>
+ <tfoot>
+ <tr>
+ <td colspan="2">Totals</td>
+ 
+ <td class="num">$30366.1</td>
+ <td class="num">49.9</td>
+ <td class="num">$608.5</td>
+ <td class="num"><span class="score-mid">55.8</span></td>
+ <td class="num">—</td>
+ <td class="num">$224.5K</td>
+ <td class="num"><span class="roas-mid">7.4x</span></td>
+ </tr>
+ </tfoot>
+ </table>
+ </div>
+
+ <!-- ===== ASSESSMENTS ===== -->
+ <div class="section-header" style="margin-top:32px">
+ <h2>Assessment</h2>
+ </div>
+
+ <div class="assessment-grid">
+
+ <!-- Insights -->
+ <div class="assessment-card">
+ <div class="assessment-header insights-header">
+ <span class="assessment-icon">💡</span>
+ <div class="assessment-title">Insights</div>
+ </div>
+ <ol class="assessment-list">
+ <li>31.4% of total expected value is concentrated in one ad — Broad_Forms_Experienced_Emma at $147813.2.</li>
+ <li>Google accounts for 86.2% of spend but only 47.7% of expected value. Meta is generating 52.3% of EV on 13.8% of budget — a meaningful efficiency gap between channels.</li>
+ <li>Application quality is split. 1 ad averaging scores above 70 — THMC_Google_Michigan_Brand_Search — while 1 active ad is pulling the average down below 50.</li>
+ <li>2 active ads produced zero loan applications while spending $1261.5 over this period: Broad_Form_Explainer_9:16_30sec, THMC_Google_Illinois_Brand_Search.</li>
+ <li>Cost per application is $115.7 on Meta versus $608.5 on Google. Meta is acquiring applications at 5.3x lower cost.</li>
+ </ol>
+ </div>
+
+ <!-- Recommendations -->
+ <div class="assessment-card">
+ <div class="assessment-header recs-header">
+ <span class="assessment-icon">🎯</span>
+ <div class="assessment-title">Recommendations</div>
+ </div>
+ <div class="rec-list">
+ 
+ <div class="rec-item">
+ <span class="rec-tag rec-kill">KILL</span>
+ <div class="rec-body">
+ <strong>Kill THMC_Google_Illinois_Brand_Search (Google)</strong>
+ <span><strong>$934.2 spent — 0 loan apps, 0 EV.</strong> This ad is burning budget with no pipeline signal. Pause immediately and reallocate.</span>
+ </div>
+ </div>
+ <div class="rec-item">
+ <span class="rec-tag rec-kill">KILL</span>
+ <div class="rec-body">
+ <strong>Kill Broad_Form_Explainer_9:16_30sec (Meta)</strong>
+ <span><strong>$327.3 spent — 0 loan apps, 0 EV.</strong> This ad is burning budget with no pipeline signal. Pause immediately and reallocate.</span>
+ </div>
+ </div>
+ <div class="rec-item">
+ <span class="rec-tag rec-down">PAUSE</span>
+ <div class="rec-body">
+ <strong>Pause Broad_Forms_Distressed_Asset (Meta)</strong>
+ <span><strong>0.2x ROAS, score 52.0, 3 app(s) at $215.5/app.</strong> Low quality leads and poor return. Pause and monitor — if no improvement in 7 days, kill.</span>
+ </div>
+ </div>
+ <div class="rec-item">
+ <span class="rec-tag rec-down">PAUSE</span>
+ <div class="rec-body">
+ <strong>Pause Broad_Form_Selfie_Style_AI (Meta)</strong>
+ <span><strong>0.4x ROAS, score 51.0, 1 app(s) at $391.1/app.</strong> Low quality leads and poor return. Pause and monitor — if no improvement in 7 days, kill.</span>
+ </div>
+ </div>
+ <div class="rec-item">
+ <span class="rec-tag rec-down">PAUSE</span>
+ <div class="rec-body">
+ <strong>Pause THMC_Google_CoreMarkets_NonBrand_Search (Google)</strong>
+ <span><strong>1.7x ROAS, score 50.0, 13.101 app(s) at $796.1/app.</strong> Low quality leads and poor return. Pause and monitor — if no improvement in 7 days, kill.</span>
+ </div>
+ </div>
+ <div class="rec-item">
+ <span class="rec-tag rec-up">SCALE</span>
+ <div class="rec-body">
+ <strong>Scale Broad_Forms_Experienced_Emma (Meta)</strong>
+ <span><strong>195.9x ROAS — 8.3 apps, score 62.0, $147813.2 EV on $754.6 spend.</strong> Increase daily budget by up to 20%. This is the best-performing ad this period.</span>
+ </div>
+ </div>
+ <div class="rec-item">
+ <span class="rec-tag rec-up">SCALE</span>
+ <div class="rec-body">
+ <strong>Scale THMC_RipCorner_Static_20260410 (Meta)</strong>
+ <span><strong>65.9x ROAS — 3.0 apps, score 67.0, $31756.0 EV on $481.6 spend.</strong> Increase daily budget by up to 20%. This is the best-performing ad this period.</span>
+ </div>
+ </div>
+ <div class="rec-item">
+ <span class="rec-tag rec-up">SCALE</span>
+ <div class="rec-body">
+ <strong>Scale Broad_Forms_Emma_In_House (Meta)</strong>
+ <span><strong>62.1x ROAS — 3.5 apps, score 56.5, $21990.8 EV on $354.3 spend.</strong> Increase daily budget by up to 20%. This is the best-performing ad this period.</span>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ </div>
+
+</div>
+
+<footer>
+ The Hard Money Co. · Last 14 Days · Apr 7 – Apr 21, 2026 · Powered by Mark &amp; Cometly · Generated 4/20/2026, 4:29:23 PM
+</footer>
 </body>
 </html>
