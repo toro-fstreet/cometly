@@ -66,6 +66,17 @@
   .badge-active { background: #d4edda; color: #155724; font-size: 10px; padding: 2px 7px; border-radius: 10px; font-weight: 600; }
   .badge-paused { background: #f0f2f5; color: #9ca3af; font-size: 10px; padding: 2px 7px; border-radius: 10px; font-weight: 600; }
 
+  /* Toggle functionality */
+  .toggle-container { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .toggle-btn { background: #007AFF; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+  .toggle-btn:hover { background: #0056b3; }
+  .toggle-btn.inactive { background: #6c757d; }
+  .row-paused.hidden { display: none; }
+  tbody tr.row-active { }
+  tbody tr.row-paused { opacity: 0.7; }
+  tbody tr.row-paused td { color: #6c757d; }
+  tbody tr.row-paused td:first-child { color: #6c757d; }
+
   /* Summary cards */
   .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
   .summary-card { background: white; border-radius: 10px; padding: 18px 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
@@ -140,8 +151,13 @@
     <div class="kpi"><label>Daily Budget</label><div class="value">$370</div><div class="sub">/day total</div></div>
   </div>
 
+  <div class="toggle-container">
+    <button class="toggle-btn" id="metaToggle" onclick="toggleCampaigns('meta')">Show All Campaigns</button>
+    <span id="metaStatus" style="font-size: 11px; color: #666;">Showing Active Only</span>
+  </div>
+
   <div class="table-wrap">
-    <table>
+    <table id="metaTable">
       <thead>
         <tr>
           <th>Ad</th>
@@ -156,8 +172,8 @@
           <th>ROAS</th>
         </tr>
       </thead>
-      <tbody>
-        <tr class="">
+      <tbody id="metaTableBody">
+        <tr class="row-active">
       <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120240911215300031%22&selected_adset_ids=120240911215300031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_Under_Contract_Emma_No_Caps ↗</a></td>
       <td><span class="badge-active">Active</span></td>
       <td class="num">$50/day</td>
@@ -169,7 +185,7 @@
       <td class="num">$23.5K</td>
       <td class="num"><span class="roas-high">39.5x</span></td>
     </tr>
-<tr class="">
+<tr class="row-active">
       <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120241515304800031%22&selected_adset_ids=120241515304800031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_Experienced_Emma ↗</a></td>
       <td><span class="badge-active">Active</span></td>
       <td class="num">$60/day</td>
@@ -181,7 +197,7 @@
       <td class="num">$50.6K</td>
       <td class="num"><span class="roas-high">67.1x</span></td>
     </tr>
-<tr class="">
+<tr class="row-active">
       <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120240910588080031%22&selected_adset_ids=120240910588080031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_Under_Contract_Emma_Caps ↗</a></td>
       <td><span class="badge-active">Active</span></td>
       <td class="num">$58/day</td>
@@ -193,7 +209,7 @@
       <td class="num">$12.6K</td>
       <td class="num"><span class="roas-high">20.3x</span></td>
     </tr>
-<tr class="">
+<tr class="row-active">
       <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120240548660800031%22&selected_adset_ids=120240548660800031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_Distressed_Asset ↗</a></td>
       <td><span class="badge-active">Active</span></td>
       <td class="num">$50/day</td>
@@ -205,7 +221,7 @@
       <td class="num">$247</td>
       <td class="num"><span class="roas-low">0.4x</span></td>
     </tr>
-<tr class="">
+<tr class="row-active">
       <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120241939706090031%22&selected_adset_ids=120241939706090031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_FdUp ↗</a></td>
       <td><span class="badge-active">Active</span></td>
       <td class="num">$32/day</td>
@@ -217,7 +233,7 @@
       <td class="num">$13.3K</td>
       <td class="num"><span class="roas-high">30.4x</span></td>
     </tr>
-<tr class="">
+<tr class="row-active">
       <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120242234014210031%22&selected_adset_ids=120242234014210031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">THMC_RipCorner_Static_20260410 ↗</a></td>
       <td><span class="badge-active">Active</span></td>
       <td class="num">$60/day</td>
@@ -229,7 +245,7 @@
       <td class="num">$33.7K</td>
       <td class="num"><span class="roas-high">50.0x</span></td>
     </tr>
-<tr class="">
+<tr class="row-active">
       <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120242186503670031%22&selected_adset_ids=120242186503670031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_FdUp_Short ↗</a></td>
       <td><span class="badge-active">Active</span></td>
       <td class="num">$30/day</td>
@@ -241,7 +257,7 @@
       <td class="num">$5.0K</td>
       <td class="num"><span class="roas-mid">12.2x</span></td>
     </tr>
-<tr class="">
+<tr class="row-active">
       <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120242145105080031%22&selected_adset_ids=120242145105080031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_Emma_In_House ↗</a></td>
       <td><span class="badge-active">Active</span></td>
       <td class="num">$30/day</td>
@@ -284,8 +300,13 @@
     
   </div>
 
+  <div class="toggle-container">
+    <button class="toggle-btn" id="googleToggle" onclick="toggleCampaigns('google')">Show All Campaigns</button>
+    <span id="googleStatus" style="font-size: 11px; color: #666;">Showing Active Only</span>
+  </div>
+
   <div class="table-wrap">
-    <table>
+    <table id="googleTable">
       <thead>
         <tr>
           <th>Ad</th>
@@ -300,8 +321,8 @@
           <th>ROAS</th>
         </tr>
       </thead>
-      <tbody>
-        <tr class="">
+      <tbody id="googleTableBody">
+        <tr class="row-active">
       <td>THMC_Google_US_Brand_Search</td>
       <td><span class="badge-active">Active</span></td>
       
@@ -313,7 +334,7 @@
       <td class="num">$140.7K</td>
       <td class="num"><span class="roas-mid">16.1x</span></td>
     </tr>
-<tr class="">
+<tr class="row-active">
       <td>THMC_Google_CoreMarkets_NonBrand_Search</td>
       <td><span class="badge-active">Active</span></td>
       
@@ -325,7 +346,7 @@
       <td class="num">$10.6K</td>
       <td class="num"><span class="roas-low">1.1x</span></td>
     </tr>
-<tr class="">
+<tr class="row-active">
       <td>THMC_Google_Remarketing_AllUsers</td>
       <td><span class="badge-active">Active</span></td>
       
@@ -337,7 +358,7 @@
       <td class="num">$67.2K</td>
       <td class="num"><span class="roas-mid">9.4x</span></td>
     </tr>
-<tr class="">
+<tr class="row-active">
       <td>THMC_Google_Wisconsin_Brand_Search</td>
       <td><span class="badge-active">Active</span></td>
       
@@ -349,7 +370,7 @@
       <td class="num">$14.7K</td>
       <td class="num"><span class="roas-mid">10.1x</span></td>
     </tr>
-<tr class="">
+<tr class="row-active">
       <td>THMC_Google_Expansion_NonBrand_Search</td>
       <td><span class="badge-active">Active</span></td>
       
@@ -361,7 +382,7 @@
       <td class="num">$6.7K</td>
       <td class="num"><span class="roas-low">3.9x</span></td>
     </tr>
-<tr class="">
+<tr class="row-active">
       <td>THMC_Google_Illinois_Brand_Search</td>
       <td><span class="badge-active">Active</span></td>
       
@@ -373,7 +394,7 @@
       <td class="num">$773</td>
       <td class="num"><span class="roas-low">0.7x</span></td>
     </tr>
-<tr class="">
+<tr class="row-active">
       <td>THMC_Google_Michigan_Brand_Search</td>
       <td><span class="badge-active">Active</span></td>
       
@@ -497,5 +518,547 @@
 <footer>
   The Hard Money Co. · Last 14 Days · Apr 9 – Apr 23, 2026 · Powered by Mark &amp; Cometly · Generated 4/23/2026, 4:53:50 PM
 </footer>
+
+<script>
+// Campaign toggle data
+const campaignData = {
+  meta: {
+    active: `<tr class="row-active">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120240911215300031%22&selected_adset_ids=120240911215300031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_Under_Contract_Emma_No_Caps ↗</a></td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$50/day</td>
+      <td class="num">$596</td>
+      <td class="num">10</td>
+      <td class="num">$60</td>
+      <td class="num"><span class="score-mid">65.0</span></td>
+      <td class="num">$2.4K</td>
+      <td class="num">$23.5K</td>
+      <td class="num"><span class="roas-high">39.5x</span></td>
+    </tr>
+<tr class="row-active">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120241515304800031%22&selected_adset_ids=120241515304800031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_Experienced_Emma ↗</a></td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$60/day</td>
+      <td class="num">$754</td>
+      <td class="num">9</td>
+      <td class="num">$81</td>
+      <td class="num"><span class="score-mid">58.8</span></td>
+      <td class="num">$6.1K</td>
+      <td class="num">$50.6K</td>
+      <td class="num"><span class="roas-high">67.1x</span></td>
+    </tr>
+<tr class="row-active">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120240910588080031%22&selected_adset_ids=120240910588080031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_Under_Contract_Emma_Caps ↗</a></td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$58/day</td>
+      <td class="num">$621</td>
+      <td class="num">8</td>
+      <td class="num">$81</td>
+      <td class="num"><span class="score-mid">62.4</span></td>
+      <td class="num">$1.6K</td>
+      <td class="num">$12.6K</td>
+      <td class="num"><span class="roas-high">20.3x</span></td>
+    </tr>
+<tr class="row-active">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120240548660800031%22&selected_adset_ids=120240548660800031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_Distressed_Asset ↗</a></td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$50/day</td>
+      <td class="num">$678</td>
+      <td class="num">6</td>
+      <td class="num">$113</td>
+      <td class="num"><span class="score-low">47.0</span></td>
+      <td class="num">$82</td>
+      <td class="num">$247</td>
+      <td class="num"><span class="roas-low">0.4x</span></td>
+    </tr>
+<tr class="row-active">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120241939706090031%22&selected_adset_ids=120241939706090031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_FdUp ↗</a></td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$32/day</td>
+      <td class="num">$438</td>
+      <td class="num">4</td>
+      <td class="num">$109</td>
+      <td class="num"><span class="score-mid">53.8</span></td>
+      <td class="num">$3.3K</td>
+      <td class="num">$13.3K</td>
+      <td class="num"><span class="roas-high">30.4x</span></td>
+    </tr>
+<tr class="row-active">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120242234014210031%22&selected_adset_ids=120242234014210031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">THMC_RipCorner_Static_20260410 ↗</a></td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$60/day</td>
+      <td class="num">$674</td>
+      <td class="num">4</td>
+      <td class="num">$169</td>
+      <td class="num"><span class="score-mid">61.3</span></td>
+      <td class="num">$8.4K</td>
+      <td class="num">$33.7K</td>
+      <td class="num"><span class="roas-high">50.0x</span></td>
+    </tr>
+<tr class="row-active">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120242186503670031%22&selected_adset_ids=120242186503670031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_FdUp_Short ↗</a></td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$30/day</td>
+      <td class="num">$408</td>
+      <td class="num">3</td>
+      <td class="num">$136</td>
+      <td class="num"><span class="score-mid">65.3</span></td>
+      <td class="num">$1.7K</td>
+      <td class="num">$5.0K</td>
+      <td class="num"><span class="roas-mid">12.2x</span></td>
+    </tr>
+<tr class="row-active">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120242145105080031%22&selected_adset_ids=120242145105080031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_Emma_In_House ↗</a></td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$30/day</td>
+      <td class="num">$396</td>
+      <td class="num">2</td>
+      <td class="num">$161</td>
+      <td class="num"><span class="score-mid">65.7</span></td>
+      <td class="num">$2.6K</td>
+      <td class="num">$6.3K</td>
+      <td class="num"><span class="roas-mid">16.0x</span></td>
+    </tr>`,
+    all: `<tr class="row-active">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120240911215300031%22&selected_adset_ids=120240911215300031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_Under_Contract_Emma_No_Caps ↗</a></td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$50/day</td>
+      <td class="num">$596</td>
+      <td class="num">10</td>
+      <td class="num">$60</td>
+      <td class="num"><span class="score-mid">65.0</span></td>
+      <td class="num">$2.4K</td>
+      <td class="num">$23.5K</td>
+      <td class="num"><span class="roas-high">39.5x</span></td>
+    </tr>
+<tr class="row-active">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120241515304800031%22&selected_adset_ids=120241515304800031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_Experienced_Emma ↗</a></td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$60/day</td>
+      <td class="num">$754</td>
+      <td class="num">9</td>
+      <td class="num">$81</td>
+      <td class="num"><span class="score-mid">58.8</span></td>
+      <td class="num">$6.1K</td>
+      <td class="num">$50.6K</td>
+      <td class="num"><span class="roas-high">67.1x</span></td>
+    </tr>
+<tr class="row-active">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120240910588080031%22&selected_adset_ids=120240910588080031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_Under_Contract_Emma_Caps ↗</a></td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$58/day</td>
+      <td class="num">$621</td>
+      <td class="num">8</td>
+      <td class="num">$81</td>
+      <td class="num"><span class="score-mid">62.4</span></td>
+      <td class="num">$1.6K</td>
+      <td class="num">$12.6K</td>
+      <td class="num"><span class="roas-high">20.3x</span></td>
+    </tr>
+<tr class="row-active">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120240548660800031%22&selected_adset_ids=120240548660800031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_Distressed_Asset ↗</a></td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$50/day</td>
+      <td class="num">$678</td>
+      <td class="num">6</td>
+      <td class="num">$113</td>
+      <td class="num"><span class="score-low">47.0</span></td>
+      <td class="num">$82</td>
+      <td class="num">$247</td>
+      <td class="num"><span class="roas-low">0.4x</span></td>
+    </tr>
+<tr class="row-active">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120241939706090031%22&selected_adset_ids=120241939706090031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_FdUp ↗</a></td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$32/day</td>
+      <td class="num">$438</td>
+      <td class="num">4</td>
+      <td class="num">$109</td>
+      <td class="num"><span class="score-mid">53.8</span></td>
+      <td class="num">$3.3K</td>
+      <td class="num">$13.3K</td>
+      <td class="num"><span class="roas-high">30.4x</span></td>
+    </tr>
+<tr class="row-active">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120242234014210031%22&selected_adset_ids=120242234014210031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">THMC_RipCorner_Static_20260410 ↗</a></td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$60/day</td>
+      <td class="num">$674</td>
+      <td class="num">4</td>
+      <td class="num">$169</td>
+      <td class="num"><span class="score-mid">61.3</span></td>
+      <td class="num">$8.4K</td>
+      <td class="num">$33.7K</td>
+      <td class="num"><span class="roas-high">50.0x</span></td>
+    </tr>
+<tr class="row-active">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120242186503670031%22&selected_adset_ids=120242186503670031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_FdUp_Short ↗</a></td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$30/day</td>
+      <td class="num">$408</td>
+      <td class="num">3</td>
+      <td class="num">$136</td>
+      <td class="num"><span class="score-mid">65.3</span></td>
+      <td class="num">$1.7K</td>
+      <td class="num">$5.0K</td>
+      <td class="num"><span class="roas-mid">12.2x</span></td>
+    </tr>
+<tr class="row-active">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120242145105080031%22&selected_adset_ids=120242145105080031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_Emma_In_House ↗</a></td>
+      <td><span class="badge-active">Active</span></td>
+      <td class="num">$30/day</td>
+      <td class="num">$396</td>
+      <td class="num">2</td>
+      <td class="num">$161</td>
+      <td class="num"><span class="score-mid">65.7</span></td>
+      <td class="num">$2.6K</td>
+      <td class="num">$6.3K</td>
+      <td class="num"><span class="roas-mid">16.0x</span></td>
+    </tr>
+<tr class="row-paused">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120241208925500031%22&selected_adset_ids=120241208925500031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_Speed_AI ↗</a></td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">$36/day</td>
+      <td class="num">$365</td>
+      <td class="num">2</td>
+      <td class="num">$183</td>
+      <td class="num"><span class="score-mid">58.0</span></td>
+      <td class="num">$142</td>
+      <td class="num">$284</td>
+      <td class="num"><span class="roas-low">0.8x</span></td>
+    </tr>
+<tr class="row-paused">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120241203249180031%22&selected_adset_ids=120241203249180031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_WeKnowFlips_Emma_Video ↗</a></td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">$36/day</td>
+      <td class="num">$15</td>
+      <td class="num">1</td>
+      <td class="num">$15</td>
+      <td class="num"><span class="dash">—</span></td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="roas-low">—</span></td>
+    </tr>
+<tr class="row-paused">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120241516310650031%22&selected_adset_ids=120241516310650031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_AI_Illustrations ↗</a></td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">$46/day</td>
+      <td class="num">$337</td>
+      <td class="num">1</td>
+      <td class="num">$337</td>
+      <td class="num"><span class="score-mid">53.0</span></td>
+      <td class="num">$224</td>
+      <td class="num">$224</td>
+      <td class="num"><span class="roas-low">0.7x</span></td>
+    </tr>
+<tr class="row-paused">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120242047271410031%22&selected_adset_ids=120242047271410031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Form_FB_LE ↗</a></td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">$40/day</td>
+      <td class="num">$285</td>
+      <td class="num">1</td>
+      <td class="num">$285</td>
+      <td class="num"><span class="score-mid">63.0</span></td>
+      <td class="num">$1.2K</td>
+      <td class="num">$1.2K</td>
+      <td class="num"><span class="roas-low">4.1x</span></td>
+    </tr>
+<tr class="row-paused">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120242085807140031%22&selected_adset_ids=120242085807140031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Form_Selfie_Style_AI ↗</a></td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">$30/day</td>
+      <td class="num">$348</td>
+      <td class="num">1</td>
+      <td class="num">$348</td>
+      <td class="num"><span class="score-mid">51.0</span></td>
+      <td class="num">$165</td>
+      <td class="num">$165</td>
+      <td class="num"><span class="roas-low">0.5x</span></td>
+    </tr>
+<tr class="row-paused">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120241698997850031%22&selected_adset_ids=120241698997850031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Form_BRRRR_Investors ↗</a></td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">$36/day</td>
+      <td class="num">$19</td>
+      <td class="num">0.8</td>
+      <td class="num">$25</td>
+      <td class="num"><span class="score-mid">65.0</span></td>
+      <td class="num">$1.3K</td>
+      <td class="num">$944</td>
+      <td class="num"><span class="roas-high">50.2x</span></td>
+    </tr>
+<tr class="row-paused">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120242048415300031%22&selected_adset_ids=120242048415300031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Form_IG_LE ↗</a></td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">$40/day</td>
+      <td class="num">$283</td>
+      <td class="num">0.3</td>
+      <td class="num">$1,134</td>
+      <td class="num"><span class="score-mid">65.0</span></td>
+      <td class="num">$1.3K</td>
+      <td class="num">$315</td>
+      <td class="num"><span class="roas-low">1.1x</span></td>
+    </tr>
+<tr class="row-paused">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120240918657600031%22&selected_adset_ids=120240918657600031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Form_iphone ↗</a></td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">$43/day</td>
+      <td class="num">$21</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="dash">—</span></td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="roas-low">—</span></td>
+    </tr>
+<tr class="row-paused">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120242186731040031%22&selected_adset_ids=120242186731040031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Form_Explainer_9:16_30sec ↗</a></td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">$30/day</td>
+      <td class="num">$348</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="dash">—</span></td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="roas-low">—</span></td>
+    </tr>
+<tr class="row-paused">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120240630527350031%22&selected_adset_ids=120240630527350031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Forms_&_LP_WeFundIt_Caps ↗</a></td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">$30/day</td>
+      <td class="num">$17</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="dash">—</span></td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="roas-low">—</span></td>
+    </tr>
+<tr class="row-paused">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120241699028930031%22&selected_adset_ids=120241699028930031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Form_Banks_Move_Slow ↗</a></td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">$30/day</td>
+      <td class="num">$13</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="dash">—</span></td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="roas-low">—</span></td>
+    </tr>
+<tr class="row-paused">
+      <td><a href="https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120241698822920031%22&selected_adset_ids=120241698822920031" target="_blank" rel="noopener" title="Open in Meta Ads Manager">Broad_Form_Notes_App ↗</a></td>
+      <td><span class="badge-paused">Paused</span></td>
+      <td class="num">$24/day</td>
+      <td class="num">$12</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="dash">—</span></td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="roas-low">—</span></td>
+    </tr>`,
+    activeTotals: { spent: 4564.95, apps: 46.458, ev: 145339.25, roas: 31.838081468581255 },
+    allTotals: { spent: 6628.6, apps: 53.458, ev: 148434.61999999997, roas: 22.393057357511385 }
+  },
+  google: {
+    active: `<tr class="row-active">
+      <td>THMC_Google_US_Brand_Search</td>
+      <td><span class="badge-active">Active</span></td>
+      
+      <td class="num">$8,717</td>
+      <td class="num">17</td>
+      <td class="num">$509</td>
+      <td class="num"><span class="score-mid">57.0</span></td>
+      <td class="num">$8.7K</td>
+      <td class="num">$140.7K</td>
+      <td class="num"><span class="roas-mid">16.1x</span></td>
+    </tr>
+<tr class="row-active">
+      <td>THMC_Google_CoreMarkets_NonBrand_Search</td>
+      <td><span class="badge-active">Active</span></td>
+      
+      <td class="num">$9,218</td>
+      <td class="num">11</td>
+      <td class="num">$841</td>
+      <td class="num"><span class="score-mid">50.8</span></td>
+      <td class="num">$1.2K</td>
+      <td class="num">$10.6K</td>
+      <td class="num"><span class="roas-low">1.1x</span></td>
+    </tr>
+<tr class="row-active">
+      <td>THMC_Google_Remarketing_AllUsers</td>
+      <td><span class="badge-active">Active</span></td>
+      
+      <td class="num">$7,151</td>
+      <td class="num">8</td>
+      <td class="num">$880</td>
+      <td class="num"><span class="score-low">44.4</span></td>
+      <td class="num">$11.0K</td>
+      <td class="num">$67.2K</td>
+      <td class="num"><span class="roas-mid">9.4x</span></td>
+    </tr>
+<tr class="row-active">
+      <td>THMC_Google_Wisconsin_Brand_Search</td>
+      <td><span class="badge-active">Active</span></td>
+      
+      <td class="num">$1,457</td>
+      <td class="num">4</td>
+      <td class="num">$346</td>
+      <td class="num"><span class="score-mid">66.4</span></td>
+      <td class="num">$3.5K</td>
+      <td class="num">$14.7K</td>
+      <td class="num"><span class="roas-mid">10.1x</span></td>
+    </tr>
+<tr class="row-active">
+      <td>THMC_Google_Expansion_NonBrand_Search</td>
+      <td><span class="badge-active">Active</span></td>
+      
+      <td class="num">$1,733</td>
+      <td class="num">3</td>
+      <td class="num">$554</td>
+      <td class="num"><span class="score-mid">64.9</span></td>
+      <td class="num">$2.1K</td>
+      <td class="num">$6.7K</td>
+      <td class="num"><span class="roas-low">3.9x</span></td>
+    </tr>
+<tr class="row-active">
+      <td>THMC_Google_Illinois_Brand_Search</td>
+      <td><span class="badge-active">Active</span></td>
+      
+      <td class="num">$1,081</td>
+      <td class="num">1</td>
+      <td class="num">$1,081</td>
+      <td class="num"><span class="score-low">46.0</span></td>
+      <td class="num">$773</td>
+      <td class="num">$773</td>
+      <td class="num"><span class="roas-low">0.7x</span></td>
+    </tr>
+<tr class="row-active">
+      <td>THMC_Google_Michigan_Brand_Search</td>
+      <td><span class="badge-active">Active</span></td>
+      
+      <td class="num">$220</td>
+      <td class="num">1</td>
+      <td class="num">$220</td>
+      <td class="num"><span class="score-high">91.0</span></td>
+      <td class="num">$7.5K</td>
+      <td class="num">$7.5K</td>
+      <td class="num"><span class="roas-high">34.2x</span></td>
+    </tr>`,
+    all: `<tr class="row-active">
+      <td>THMC_Google_US_Brand_Search</td>
+      <td><span class="badge-active">Active</span></td>
+      
+      <td class="num">$8,717</td>
+      <td class="num">17</td>
+      <td class="num">$509</td>
+      <td class="num"><span class="score-mid">57.0</span></td>
+      <td class="num">$8.7K</td>
+      <td class="num">$140.7K</td>
+      <td class="num"><span class="roas-mid">16.1x</span></td>
+    </tr>
+<tr class="row-active">
+      <td>THMC_Google_CoreMarkets_NonBrand_Search</td>
+      <td><span class="badge-active">Active</span></td>
+      
+      <td class="num">$9,218</td>
+      <td class="num">11</td>
+      <td class="num">$841</td>
+      <td class="num"><span class="score-mid">50.8</span></td>
+      <td class="num">$1.2K</td>
+      <td class="num">$10.6K</td>
+      <td class="num"><span class="roas-low">1.1x</span></td>
+    </tr>
+<tr class="row-active">
+      <td>THMC_Google_Remarketing_AllUsers</td>
+      <td><span class="badge-active">Active</span></td>
+      
+      <td class="num">$7,151</td>
+      <td class="num">8</td>
+      <td class="num">$880</td>
+      <td class="num"><span class="score-low">44.4</span></td>
+      <td class="num">$11.0K</td>
+      <td class="num">$67.2K</td>
+      <td class="num"><span class="roas-mid">9.4x</span></td>
+    </tr>
+<tr class="row-active">
+      <td>THMC_Google_Wisconsin_Brand_Search</td>
+      <td><span class="badge-active">Active</span></td>
+      
+      <td class="num">$1,457</td>
+      <td class="num">4</td>
+      <td class="num">$346</td>
+      <td class="num"><span class="score-mid">66.4</span></td>
+      <td class="num">$3.5K</td>
+      <td class="num">$14.7K</td>
+      <td class="num"><span class="roas-mid">10.1x</span></td>
+    </tr>
+<tr class="row-active">
+      <td>THMC_Google_Expansion_NonBrand_Search</td>
+      <td><span class="badge-active">Active</span></td>
+      
+      <td class="num">$1,733</td>
+      <td class="num">3</td>
+      <td class="num">$554</td>
+      <td class="num"><span class="score-mid">64.9</span></td>
+      <td class="num">$2.1K</td>
+      <td class="num">$6.7K</td>
+      <td class="num"><span class="roas-low">3.9x</span></td>
+    </tr>
+<tr class="row-active">
+      <td>THMC_Google_Illinois_Brand_Search</td>
+      <td><span class="badge-active">Active</span></td>
+      
+      <td class="num">$1,081</td>
+      <td class="num">1</td>
+      <td class="num">$1,081</td>
+      <td class="num"><span class="score-low">46.0</span></td>
+      <td class="num">$773</td>
+      <td class="num">$773</td>
+      <td class="num"><span class="roas-low">0.7x</span></td>
+    </tr>
+<tr class="row-active">
+      <td>THMC_Google_Michigan_Brand_Search</td>
+      <td><span class="badge-active">Active</span></td>
+      
+      <td class="num">$220</td>
+      <td class="num">1</td>
+      <td class="num">$220</td>
+      <td class="num"><span class="score-high">91.0</span></td>
+      <td class="num">$7.5K</td>
+      <td class="num">$7.5K</td>
+      <td class="num"><span class="roas-high">34.2x</span></td>
+    </tr>`,
+    activeTotals: { spent: 29578.13, apps: 45.542, ev: 248096.75, roas: 8.387844329577293 },
+    allTotals: { spent: 29578.13, apps: 45.542, ev: 248096.75, roas: 8.387844329577293 }
+  }
+};
+
+let showingAll = { meta: false, google: false };
+
+function toggleCampaigns(channel) {
+  const isShowingAll = showingAll[channel];
+  const tableBody = document.getElementById(channel + 'TableBody');
+  const toggleBtn = document.getElementById(channel + 'Toggle');
+  const status = document.getElementById(channel + 'Status');
+  
+  if (isShowingAll) {
+    // Switch to Active Only
+    tableBody.innerHTML = campaignData[channel].active;
+    toggleBtn.textContent = 'Show All Campaigns';
+    status.textContent = 'Showing Active Only';
+    showingAll[channel] = false;
+  } else {
+    // Switch to All Campaigns
+    tableBody.innerHTML = campaignData[channel].all;
+    toggleBtn.textContent = 'Show Active Only';
+    status.textContent = 'Showing All Campaigns';
+    showingAll[channel] = true;
+  }
+}
+</script>
+
 </body>
 </html>
