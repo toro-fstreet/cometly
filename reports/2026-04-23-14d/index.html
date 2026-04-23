@@ -130,11 +130,11 @@
 
   <!-- ===== COMBINED KPIs ===== -->
   <div class="kpi-row" style="margin-top:24px">
-    <div class="kpi blue"><label>Total Spend</label><div class="value">$34.1K</div><div class="sub">Meta + Google</div></div>
-    <div class="kpi green"><label>Loan Apps</label><div class="value">92</div><div class="sub">Submitted</div></div>
-    <div class="kpi green"><label>Total Expected Value</label><div class="value">$393.4K</div><div class="sub">custom_event_21</div></div>
-    <div class="kpi yellow"><label>Blended ROAS</label><div class="value">11.5x</div><div class="sub">EV ÷ Spend</div></div>
-    <div class="kpi"><label>Closed Won</label><div class="value">—</div><div class="sub">All channels</div></div>
+    <div class="kpi blue"><label>Total Spend</label><div class="value" id="grandTotalSpend">$34.1K</div><div class="sub">Meta + Google</div></div>
+    <div class="kpi green"><label>Loan Apps</label><div class="value" id="grandTotalApps">92</div><div class="sub">Submitted</div></div>
+    <div class="kpi green"><label>Total Expected Value</label><div class="value" id="grandTotalEv">$393.4K</div><div class="sub">custom_event_21</div></div>
+    <div class="kpi yellow"><label>Blended ROAS</label><div class="value" id="grandTotalRoas">11.5x</div><div class="sub">EV ÷ Spend</div></div>
+    <div class="kpi"><label>Closed Won</label><div class="value" id="grandTotalClosed">—</div><div class="sub">All channels</div></div>
   </div>
 
   <!-- ===== META ===== -->
@@ -144,11 +144,11 @@
   </div>
 
   <div class="kpi-row">
-    <div class="kpi blue"><label>Meta Spend</label><div class="value">$4.6K</div></div>
-    <div class="kpi green"><label>Loan Apps</label><div class="value">46</div></div>
-    <div class="kpi green"><label>Total EV</label><div class="value">$145.3K</div></div>
-    <div class="kpi yellow"><label>Blended ROAS</label><div class="value">31.8x</div></div>
-    <div class="kpi"><label>Daily Budget</label><div class="value">$370</div><div class="sub">/day total</div></div>
+    <div class="kpi blue"><label>Meta Spend</label><div class="value" id="metaTotalSpend">$4.6K</div></div>
+    <div class="kpi green"><label>Loan Apps</label><div class="value" id="metaTotalApps">46</div></div>
+    <div class="kpi green"><label>Total EV</label><div class="value" id="metaTotalEv">$145.3K</div></div>
+    <div class="kpi yellow"><label>Blended ROAS</label><div class="value" id="metaTotalRoas">31.8x</div></div>
+    <div class="kpi"><label>Daily Budget</label><div class="value" id="metaTotalBudget">$370</div><div class="sub">/day total</div></div>
   </div>
 
   <div class="toggle-container">
@@ -270,17 +270,17 @@
       <td class="num"><span class="roas-mid">16.0x</span></td>
     </tr>
       </tbody>
-      <tfoot>
+      <tfoot id="metaTableFooter">
         <tr>
           <td colspan="2">Totals</td>
-          <td class="num">$370.0/day</td>
-          <td class="num">$4,565.0</td>
-          <td class="num">46</td>
-          <td class="num">$98.3</td>
-          <td class="num"><span class="score-mid">59.8</span></td>
+          <td class="num" id="metaFooterBudget">$370.0/day</td>
+          <td class="num" id="metaFooterSpent">$4,565.0</td>
+          <td class="num" id="metaFooterApps">46</td>
+          <td class="num" id="metaFooterCPA">$98.3</td>
+          <td class="num"><span class="score-mid" id="metaFooterScore">59.8</span></td>
           <td class="num">—</td>
-          <td class="num">$145.3K</td>
-          <td class="num"><span class="roas-high">31.8x</span></td>
+          <td class="num" id="metaFooterEv">$145.3K</td>
+          <td class="num"><span class="roas-high" id="metaFooterRoas">31.8x</span></td>
         </tr>
       </tfoot>
     </table>
@@ -293,10 +293,10 @@
   </div>
 
   <div class="kpi-row">
-    <div class="kpi blue"><label>Google Spend</label><div class="value">$29.6K</div></div>
-    <div class="kpi green"><label>Loan Apps</label><div class="value">46</div></div>
-    <div class="kpi green"><label>Total EV</label><div class="value">$248.1K</div></div>
-    <div class="kpi yellow"><label>Blended ROAS</label><div class="value">8.4x</div></div>
+    <div class="kpi blue"><label>Google Spend</label><div class="value" id="googleTotalSpend">$29.6K</div></div>
+    <div class="kpi green"><label>Loan Apps</label><div class="value" id="googleTotalApps">46</div></div>
+    <div class="kpi green"><label>Total EV</label><div class="value" id="googleTotalEv">$248.1K</div></div>
+    <div class="kpi yellow"><label>Blended ROAS</label><div class="value" id="googleTotalRoas">8.4x</div></div>
     
   </div>
 
@@ -407,17 +407,17 @@
       <td class="num"><span class="roas-high">34.2x</span></td>
     </tr>
       </tbody>
-      <tfoot>
+      <tfoot id="googleTableFooter">
         <tr>
           <td colspan="2">Totals</td>
           
-          <td class="num">$29,578.1</td>
-          <td class="num">46</td>
-          <td class="num">$649.5</td>
-          <td class="num"><span class="score-mid">55.2</span></td>
+          <td class="num" id="googleFooterSpent">$29,578.1</td>
+          <td class="num" id="googleFooterApps">46</td>
+          <td class="num" id="googleFooterCPA">$649.5</td>
+          <td class="num"><span class="score-mid" id="googleFooterScore">55.2</span></td>
           <td class="num">—</td>
-          <td class="num">$248.1K</td>
-          <td class="num"><span class="roas-mid">8.4x</span></td>
+          <td class="num" id="googleFooterEv">$248.1K</td>
+          <td class="num"><span class="roas-mid" id="googleFooterRoas">8.4x</span></td>
         </tr>
       </tfoot>
     </table>
@@ -859,8 +859,8 @@ const campaignData = {
       <td class="num">—</td>
       <td class="num"><span class="roas-low">—</span></td>
     </tr>`,
-    activeTotals: { spent: 4564.95, apps: 46.458, ev: 145339.25, roas: 31.838081468581255 },
-    allTotals: { spent: 6628.6, apps: 53.458, ev: 148434.61999999997, roas: 22.393057357511385 }
+    activeTotals: { spent: 4564.95, apps: 46.458, ev: 145339.25, roas: 31.838081468581255, budget: 370, avgScore: 59.76453476258126 },
+    allTotals: { spent: 6628.6, apps: 53.458, ev: 148434.61999999997, roas: 22.393057357511385, budget: 791, avgScore: 58.44851576938906 }
   },
   google: {
     active: `<tr class="row-active">
@@ -1031,10 +1031,38 @@ const campaignData = {
       <td class="num">$7.5K</td>
       <td class="num"><span class="roas-high">34.2x</span></td>
     </tr>`,
-    activeTotals: { spent: 29578.13, apps: 45.542, ev: 248096.75, roas: 8.387844329577293 },
-    allTotals: { spent: 29578.13, apps: 45.542, ev: 248096.75, roas: 8.387844329577293 }
+    activeTotals: { spent: 29578.13, apps: 45.542, ev: 248096.75, roas: 8.387844329577293, budget: 0, avgScore: 55.19002441702164 },
+    allTotals: { spent: 29578.13, apps: 45.542, ev: 248096.75, roas: 8.387844329577293, budget: 0, avgScore: 55.19002441702164 }
+  },
+  grand: {
+    activeTotals: { spent: 34143.08, apps: 92, ev: 393436, roas: 11.523154911624845, closed: 0 },
+    allTotals: { spent: 36206.73, apps: 99, ev: 396531.37, roas: 10.951869169074367, closed: 0 }
   }
 };
+
+// Utility functions for formatting
+function fmtDollar(n) {
+  if (!n || n === 0) return '$0';
+  if (n >= 1000000) return `$${(n/1000000).toFixed(1)}M`;
+  if (n >= 1000) return `$${(n/1000).toFixed(1)}K`;
+  return n >= 10 ? `$${n.toFixed(0)}` : `$${n.toFixed(1)}`;
+}
+
+function fmtApps(n) {
+  if (!n || n === 0) return 0;
+  return n >= 1 ? Math.round(n) : n.toFixed(1);
+}
+
+function fmtScore(n) {
+  if (!n || n === 0) return '—';
+  return parseFloat(n).toFixed(1);
+}
+
+function fmtROAS(spent, ev) {
+  if (!spent || spent === 0) return '—';
+  const r = ev / spent;
+  return r > 0 ? `${r.toFixed(1)}x` : '—';
+}
 
 let showingAll = { meta: false, google: false };
 
@@ -1050,13 +1078,66 @@ function toggleCampaigns(channel) {
     toggleBtn.textContent = 'Show All Campaigns';
     status.textContent = 'Showing Active Only';
     showingAll[channel] = false;
+    updateKPIs(channel, 'active');
   } else {
     // Switch to All Campaigns
     tableBody.innerHTML = campaignData[channel].all;
     toggleBtn.textContent = 'Show Active Only';
     status.textContent = 'Showing All Campaigns';
     showingAll[channel] = true;
+    updateKPIs(channel, 'all');
   }
+  
+  // Update grand totals
+  updateGrandTotals();
+}
+
+function updateKPIs(channel, mode) {
+  const totals = campaignData[channel][mode + 'Totals'];
+  
+  // Update channel KPIs
+  document.getElementById(channel + 'TotalSpend').textContent = fmtDollar(totals.spent);
+  document.getElementById(channel + 'TotalApps').textContent = fmtApps(totals.apps);
+  document.getElementById(channel + 'TotalEv').textContent = fmtDollar(totals.ev);
+  document.getElementById(channel + 'TotalRoas').textContent = totals.roas > 0 ? totals.roas.toFixed(1) + 'x' : '—';
+  
+  if (document.getElementById(channel + 'TotalBudget')) {
+    document.getElementById(channel + 'TotalBudget').textContent = fmtDollar(totals.budget);
+  }
+  
+  // Update table footer
+  document.getElementById(channel + 'FooterSpent').textContent = '$' + totals.spent.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1});
+  document.getElementById(channel + 'FooterApps').textContent = fmtApps(totals.apps) || '—';
+  document.getElementById(channel + 'FooterEv').textContent = fmtDollar(totals.ev);
+  document.getElementById(channel + 'FooterRoas').textContent = fmtROAS(totals.spent, totals.ev);
+  document.getElementById(channel + 'FooterScore').textContent = fmtScore(totals.avgScore);
+  
+  const cpa = totals.apps > 0 ? (totals.spent / totals.apps).toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1}) : '—';
+  document.getElementById(channel + 'FooterCPA').textContent = totals.apps > 0 ? '$' + cpa : '—';
+  
+  if (document.getElementById(channel + 'FooterBudget')) {
+    document.getElementById(channel + 'FooterBudget').textContent = '$' + totals.budget.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1}) + '/day';
+  }
+}
+
+function updateGrandTotals() {
+  const metaMode = showingAll.meta ? 'all' : 'active';
+  const googleMode = showingAll.google ? 'all' : 'active';
+  
+  const metaTotals = campaignData.meta[metaMode + 'Totals'];
+  const googleTotals = campaignData.google[googleMode + 'Totals'];
+  
+  const grandSpent = metaTotals.spent + googleTotals.spent;
+  const grandApps = metaTotals.apps + googleTotals.apps;
+  const grandEv = metaTotals.ev + googleTotals.ev;
+  const grandRoas = grandSpent > 0 ? grandEv / grandSpent : 0;
+  const grandClosed = metaTotals.closed || 0 + googleTotals.closed || 0;
+  
+  document.getElementById('grandTotalSpend').textContent = fmtDollar(grandSpent);
+  document.getElementById('grandTotalApps').textContent = fmtApps(grandApps);
+  document.getElementById('grandTotalEv').textContent = fmtDollar(grandEv);
+  document.getElementById('grandTotalRoas').textContent = grandRoas > 0 ? grandRoas.toFixed(1) + 'x' : '—';
+  document.getElementById('grandTotalClosed').textContent = fmtApps(grandClosed) || '—';
 }
 </script>
 
