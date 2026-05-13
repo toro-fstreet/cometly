@@ -1,0 +1,1355 @@
+{
+  "dateRange": "Last 7 Days",
+  "scrapeTime": "2026-05-13T16:07:36.312Z",
+  "meta": {
+    "campaigns": {
+      "headers": {
+        "name": "Name",
+        "delivery": "Delivery",
+        "budget": "Budget",
+        "amount_spent": "Amount Spent",
+        "clicks": "Clicks (All)",
+        "lead_generated": "Lead",
+        "cost_per_lead_generated": "Cost per Lead",
+        "custom_event_1": "Application Submitted",
+        "cost_per_custom_event_1": "Cost per Application Submitted",
+        "custom_event_20": "Application Score",
+        "custom_event_21": "Application Expected Value",
+        "custom_event_21_amount": "Application Expected Value Value",
+        "custom_event_22": "Personal or Business Loan",
+        "m_avg_application_score": "Avg Application Score",
+        "m_expected_roas": "Expected ROAS",
+        "m_avg_expected_value": "Avg Expected Value"
+      },
+      "rows": [
+        {
+          "id": "3377699811000897",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Meta_Generic_20260206",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_GROUP_ID-STRING%1EEQUAL%1E%22120239432523620031%22&selected_campaign_ids=120239432523620031",
+            "delivery": "Active",
+            "budget": "Using Adset Budget",
+            "amount_spent": "$2,642.16",
+            "clicks": "1,638",
+            "lead_generated": "171.5",
+            "cost_per_lead_generated": "$15.41",
+            "custom_event_1": "28.125",
+            "cost_per_custom_event_1": "$93.94",
+            "custom_event_20": "26.125",
+            "custom_event_21": "25.125",
+            "custom_event_21_amount": "$46,957.81",
+            "custom_event_22": "2",
+            "m_avg_application_score": "60.11",
+            "m_expected_roas": "17.773",
+            "m_avg_expected_value": "$1,868.97"
+          }
+        },
+        {
+          "id": "4503599720000067",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Meta_Brokers_20260304 _Angle_Test",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_GROUP_ID-STRING%1EEQUAL%1E%22120240548660790031%22&selected_campaign_ids=120240548660790031",
+            "delivery": "Active",
+            "budget": "Using Adset Budget",
+            "amount_spent": "$423.87",
+            "clicks": "160",
+            "lead_generated": "23",
+            "cost_per_lead_generated": "$18.43",
+            "custom_event_1": "5.667",
+            "cost_per_custom_event_1": "$74.80",
+            "custom_event_20": "3.667",
+            "custom_event_21": "3",
+            "custom_event_21_amount": "$287.02",
+            "custom_event_22": "0.667",
+            "m_avg_application_score": "39.637",
+            "m_expected_roas": "0.677",
+            "m_avg_expected_value": "$95.67"
+          }
+        },
+        {
+          "id": "4503599731000122",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Meta_LandingPage",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_GROUP_ID-STRING%1EEQUAL%1E%22120243836849650031%22&selected_campaign_ids=120243836849650031",
+            "delivery": "Active",
+            "budget": "Using Adset Budget",
+            "amount_spent": "$208.75",
+            "clicks": "91",
+            "lead_generated": "-",
+            "cost_per_lead_generated": "-",
+            "custom_event_1": "2.333",
+            "cost_per_custom_event_1": "$89.47",
+            "custom_event_20": "2.333",
+            "custom_event_21": "2",
+            "custom_event_21_amount": "$3,443.97",
+            "custom_event_22": "0.333",
+            "m_avg_application_score": "63.287",
+            "m_expected_roas": "16.498",
+            "m_avg_expected_value": "$1,721.99"
+          }
+        },
+        {
+          "id": "3377699808000188",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Meta_Forecasa&ForecasaADV+",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_GROUP_ID-STRING%1EEQUAL%1E%22120238051629060031%22&selected_campaign_ids=120238051629060031",
+            "delivery": "Paused",
+            "budget": "$40.00\n(daily)",
+            "amount_spent": "-",
+            "clicks": "-",
+            "lead_generated": "-",
+            "cost_per_lead_generated": "-",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "$0.00",
+            "custom_event_22": "-",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        },
+        {
+          "id": "4503599706000234",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Meta_Generic_20251110",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_GROUP_ID-STRING%1EEQUAL%1E%22120235243629020031%22&selected_campaign_ids=120235243629020031",
+            "delivery": "Paused",
+            "budget": "$315.00\n(daily)",
+            "amount_spent": "-",
+            "clicks": "-",
+            "lead_generated": "-",
+            "cost_per_lead_generated": "-",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "$0.00",
+            "custom_event_22": "-",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        },
+        {
+          "id": "4503599713000291",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Meta_Generic_20251110 - Copy (RIQ Flippers)",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_GROUP_ID-STRING%1EEQUAL%1E%22120238730003590031%22&selected_campaign_ids=120238730003590031",
+            "delivery": "Paused",
+            "budget": "$100.00\n(daily)",
+            "amount_spent": "-",
+            "clicks": "-",
+            "lead_generated": "-",
+            "cost_per_lead_generated": "-",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "$0.00",
+            "custom_event_22": "-",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        },
+        {
+          "id": "4503599713000335",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Meta_Brokers_20260106 - Copy(RIQAgents+LO's)",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_GROUP_ID-STRING%1EEQUAL%1E%22120238771546440031%22&selected_campaign_ids=120238771546440031",
+            "delivery": "Paused",
+            "budget": "$100.00\n(daily)",
+            "amount_spent": "-",
+            "clicks": "-",
+            "lead_generated": "-",
+            "cost_per_lead_generated": "-",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "$0.00",
+            "custom_event_22": "-",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        },
+        {
+          "id": "Totals",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "Totals",
+            "delivery": "",
+            "budget": "",
+            "amount_spent": "$3,274.78",
+            "clicks": "1,889",
+            "lead_generated": "194.5",
+            "cost_per_lead_generated": "$16.84",
+            "custom_event_1": "36.125",
+            "cost_per_custom_event_1": "$90.65",
+            "custom_event_20": "32.125",
+            "custom_event_21": "30.125",
+            "custom_event_21_amount": "$50,688.80",
+            "custom_event_22": "3",
+            "m_avg_application_score": "58.004",
+            "m_expected_roas": "15.479",
+            "m_avg_expected_value": "$1,682.62"
+          }
+        }
+      ]
+    },
+    "adsets": {
+      "headers": {
+        "name": "Name",
+        "custom_event_1": "Application Submitted",
+        "cost_per_custom_event_1": "Cost per Application Submitted",
+        "custom_event_20": "Application Score",
+        "delivery": "Delivery",
+        "budget": "Budget",
+        "amount_spent": "Amount Spent",
+        "clicks": "Clicks (All)",
+        "lead_generated": "Lead",
+        "cost_per_lead_generated": "Cost per Lead",
+        "custom_event_21": "Application Expected Value",
+        "custom_event_21_amount": "Application Expected Value Value",
+        "custom_event_22": "Personal or Business Loan",
+        "ad_schedule": "Ad Schedule",
+        "m_avg_application_score": "Avg Application Score",
+        "m_expected_roas": "Expected ROAS",
+        "m_avg_expected_value": "Avg Expected Value"
+      },
+      "rows": [
+        {
+          "id": "3377699819000555",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "Broad_Forms_Under_Contract_Emma_No_Caps",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120240911215300031%22&selected_adset_ids=120240911215300031",
+            "delivery": "Active",
+            "budget": "$120.00\n(daily)",
+            "amount_spent": "$678.65",
+            "clicks": "495",
+            "lead_generated": "56.5",
+            "cost_per_lead_generated": "$12.01",
+            "custom_event_1": "4",
+            "cost_per_custom_event_1": "$169.66",
+            "custom_event_20": "4",
+            "custom_event_21": "4",
+            "custom_event_21_amount": "$7,541.12",
+            "custom_event_22": "-",
+            "ad_schedule": "Mar 13th, 2026 - Ongoing",
+            "m_avg_application_score": "65",
+            "m_expected_roas": "11.112",
+            "m_avg_expected_value": "$1,885.28"
+          }
+        },
+        {
+          "id": "4503599723000219",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "Broad_Forms_Distressed_Asset",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120240548660800031%22&selected_adset_ids=120240548660800031",
+            "delivery": "Active",
+            "budget": "$60.00\n(daily)",
+            "amount_spent": "$397.31",
+            "clicks": "150",
+            "lead_generated": "20",
+            "cost_per_lead_generated": "$19.87",
+            "custom_event_1": "5",
+            "cost_per_custom_event_1": "$79.46",
+            "custom_event_20": "3",
+            "custom_event_21": "3",
+            "custom_event_21_amount": "$287.02",
+            "custom_event_22": "-",
+            "ad_schedule": "Mar 4th, 2026 - Ongoing",
+            "m_avg_application_score": "43.333",
+            "m_expected_roas": "0.722",
+            "m_avg_expected_value": "$95.67"
+          }
+        },
+        {
+          "id": "4503599724000457",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "Broad_Forms_Under_Contract_Emma_Caps",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120240910588080031%22&selected_adset_ids=120240910588080031",
+            "delivery": "Active",
+            "budget": "$95.00\n(daily)",
+            "amount_spent": "$545.38",
+            "clicks": "373",
+            "lead_generated": "48.5",
+            "cost_per_lead_generated": "$11.24",
+            "custom_event_1": "10",
+            "cost_per_custom_event_1": "$54.54",
+            "custom_event_20": "8",
+            "custom_event_21": "8",
+            "custom_event_21_amount": "$25,270.09",
+            "custom_event_22": "1",
+            "ad_schedule": "Mar 13th, 2026 - Ongoing",
+            "m_avg_application_score": "63.375",
+            "m_expected_roas": "46.335",
+            "m_avg_expected_value": "$3,158.76"
+          }
+        },
+        {
+          "id": "4503599728000480",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "Broad_Forms_FdUp",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120241939706090031%22&selected_adset_ids=120241939706090031",
+            "delivery": "Active",
+            "budget": "$45.00\n(daily)",
+            "amount_spent": "$313.14",
+            "clicks": "165",
+            "lead_generated": "18.5",
+            "cost_per_lead_generated": "$16.93",
+            "custom_event_1": "2",
+            "cost_per_custom_event_1": "$156.57",
+            "custom_event_20": "2",
+            "custom_event_21": "2",
+            "custom_event_21_amount": "$1,388.24",
+            "custom_event_22": "-",
+            "ad_schedule": "Apr 3rd, 2026 - Ongoing",
+            "m_avg_application_score": "53",
+            "m_expected_roas": "4.433",
+            "m_avg_expected_value": "$694.12"
+          }
+        },
+        {
+          "id": "4503599729000271",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "Broad_Forms_Emma_In_House",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120242145105080031%22&selected_adset_ids=120242145105080031",
+            "delivery": "Active",
+            "budget": "$30.00\n(daily)",
+            "amount_spent": "$200.04",
+            "clicks": "174",
+            "lead_generated": "17",
+            "cost_per_lead_generated": "$11.77",
+            "custom_event_1": "4.125",
+            "cost_per_custom_event_1": "$48.49",
+            "custom_event_20": "4.125",
+            "custom_event_21": "4.125",
+            "custom_event_21_amount": "$5,542.32",
+            "custom_event_22": "-",
+            "ad_schedule": "Apr 8th, 2026 - Ongoing",
+            "m_avg_application_score": "59",
+            "m_expected_roas": "27.706",
+            "m_avg_expected_value": "$1,343.59"
+          }
+        },
+        {
+          "id": "4503599733000910",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Meta_Forms_UC_Emma_Caps_Targeted",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120243340169240031%22&selected_adset_ids=120243340169240031",
+            "delivery": "Active",
+            "budget": "$68.00\n(daily)",
+            "amount_spent": "$424.61",
+            "clicks": "261",
+            "lead_generated": "21",
+            "cost_per_lead_generated": "$20.22",
+            "custom_event_1": "6",
+            "cost_per_custom_event_1": "$70.77",
+            "custom_event_20": "6",
+            "custom_event_21": "5",
+            "custom_event_21_amount": "$5,472.46",
+            "custom_event_22": "1",
+            "ad_schedule": "May 1st, 2026 - Ongoing",
+            "m_avg_application_score": "55",
+            "m_expected_roas": "12.888",
+            "m_avg_expected_value": "$1,094.49"
+          }
+        },
+        {
+          "id": "4503599734000500",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_ScottAd_LandingPage",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120243836849640031%22&selected_adset_ids=120243836849640031",
+            "delivery": "Active",
+            "budget": "$39.00\n(daily)",
+            "amount_spent": "$208.75",
+            "clicks": "91",
+            "lead_generated": "-",
+            "cost_per_lead_generated": "-",
+            "custom_event_1": "2.333",
+            "cost_per_custom_event_1": "$89.47",
+            "custom_event_20": "2.333",
+            "custom_event_21": "2",
+            "custom_event_21_amount": "$3,443.97",
+            "custom_event_22": "0.333",
+            "ad_schedule": "May 8th, 2026 - Ongoing",
+            "m_avg_application_score": "63.287",
+            "m_expected_roas": "16.498",
+            "m_avg_expected_value": "$1,721.99"
+          }
+        },
+        {
+          "id": "4503599734000501",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_ScottAd_Form",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120243838187840031%22&selected_adset_ids=120243838187840031",
+            "delivery": "Active",
+            "budget": "$33.00\n(daily)",
+            "amount_spent": "$185.55",
+            "clicks": "83",
+            "lead_generated": "4",
+            "cost_per_lead_generated": "$46.39",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "-",
+            "custom_event_22": "-",
+            "ad_schedule": "May 8th, 2026 - Ongoing",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        },
+        {
+          "id": "3377699809000331",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Meta_Forecasa_Site+forms",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120238051629130031%22&selected_adset_ids=120238051629130031",
+            "delivery": "Campaign Paused",
+            "budget": "Using Campaign Budget",
+            "amount_spent": "-",
+            "clicks": "-",
+            "lead_generated": "-",
+            "cost_per_lead_generated": "-",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "$0.00",
+            "custom_event_22": "-",
+            "ad_schedule": "Dec 29th, 2025 - Ongoing",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        },
+        {
+          "id": "3377699811000060",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Generic_20251110_RIQ_Flippers_1.19.26 - Copy (Adv+)",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120238822157600031%22&selected_adset_ids=120238822157600031",
+            "delivery": "Campaign Paused",
+            "budget": "Using Campaign Budget",
+            "amount_spent": "-",
+            "clicks": "-",
+            "lead_generated": "-",
+            "cost_per_lead_generated": "-",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "$0.00",
+            "custom_event_22": "-",
+            "ad_schedule": "Jan 19th, 2026 - Ongoing",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        },
+        {
+          "id": "4503599709000653",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Generic_20251110_BROAD",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120235243629040031%22&selected_adset_ids=120235243629040031",
+            "delivery": "Campaign Paused",
+            "budget": "Using Campaign Budget",
+            "amount_spent": "-",
+            "clicks": "-",
+            "lead_generated": "-",
+            "cost_per_lead_generated": "-",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "$0.00",
+            "custom_event_22": "-",
+            "ad_schedule": "Nov 11th, 2025 - Ongoing",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        },
+        {
+          "id": "4503599717000297",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "RIQ_Adv+_LO's",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120238888225720031%22&selected_adset_ids=120238888225720031",
+            "delivery": "Campaign Paused",
+            "budget": "Using Campaign Budget",
+            "amount_spent": "-",
+            "clicks": "-",
+            "lead_generated": "-",
+            "cost_per_lead_generated": "-",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "$0.00",
+            "custom_event_22": "-",
+            "ad_schedule": "Jan 21st, 2026 - Ongoing",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        },
+        {
+          "id": "3377699830001006",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "thmc_meta_staticText_BroadForms_20260430",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120243295242930031%22&selected_adset_ids=120243295242930031",
+            "delivery": "Paused",
+            "budget": "$40.00\n(daily)",
+            "amount_spent": "$33.33",
+            "clicks": "3",
+            "lead_generated": "1",
+            "cost_per_lead_generated": "$33.33",
+            "custom_event_1": "1",
+            "cost_per_custom_event_1": "$33.33",
+            "custom_event_20": "1",
+            "custom_event_21": "1",
+            "custom_event_21_amount": "$900.08",
+            "custom_event_22": "-",
+            "ad_schedule": "Apr 30th, 2026 - Ongoing",
+            "m_avg_application_score": "70",
+            "m_expected_roas": "27.005",
+            "m_avg_expected_value": "$900.08"
+          }
+        },
+        {
+          "id": "4503599716000328",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Meta_Forecasa_Site+forms - Copy(Adv+)",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120238634936600031%22&selected_adset_ids=120238634936600031",
+            "delivery": "Paused",
+            "budget": "Using Campaign Budget",
+            "amount_spent": "-",
+            "clicks": "-",
+            "lead_generated": "-",
+            "cost_per_lead_generated": "-",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "$0.00",
+            "custom_event_22": "-",
+            "ad_schedule": "Jan 14th, 2026 - Ongoing",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        },
+        {
+          "id": "4503599723000460",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "Broad_Forms_&_LP_WeFundIt_Caps",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120240630527350031%22&selected_adset_ids=120240630527350031",
+            "delivery": "Paused",
+            "budget": "$30.00\n(daily)",
+            "amount_spent": "-",
+            "clicks": "-",
+            "lead_generated": "-",
+            "cost_per_lead_generated": "-",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "$0.00",
+            "custom_event_22": "-",
+            "ad_schedule": "Mar 6th, 2026 - Ongoing",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        },
+        {
+          "id": "4503599727000399",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "Broad_Forms_Experienced_Emma",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120241515304800031%22&selected_adset_ids=120241515304800031",
+            "delivery": "Paused",
+            "budget": "$40.00\n(daily)",
+            "amount_spent": "$25.71",
+            "clicks": "10",
+            "lead_generated": "-",
+            "cost_per_lead_generated": "-",
+            "custom_event_1": "1",
+            "cost_per_custom_event_1": "$25.71",
+            "custom_event_20": "1",
+            "custom_event_21": "1",
+            "custom_event_21_amount": "$843.50",
+            "custom_event_22": "-",
+            "ad_schedule": "Mar 27th, 2026 - Ongoing",
+            "m_avg_application_score": "54",
+            "m_expected_roas": "32.808",
+            "m_avg_expected_value": "$843.50"
+          }
+        },
+        {
+          "id": "4503599730000212",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_RipCorner_Static_20260410",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120242234014210031%22&selected_adset_ids=120242234014210031",
+            "delivery": "Paused",
+            "budget": "$40.00\n(daily)",
+            "amount_spent": "$26.56",
+            "clicks": "10",
+            "lead_generated": "3",
+            "cost_per_lead_generated": "$8.85",
+            "custom_event_1": "0.667",
+            "cost_per_custom_event_1": "$39.84",
+            "custom_event_20": "0.667",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "-",
+            "custom_event_22": "0.667",
+            "ad_schedule": "Apr 10th, 2026 - Ongoing",
+            "m_avg_application_score": "23.002",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        },
+        {
+          "id": "4503599731000711",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_FrameinFrame_Emma_Targeted",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/adsets?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120242560131810031%22&selected_adset_ids=120242560131810031",
+            "delivery": "Paused",
+            "budget": "$40.00\n(daily)",
+            "amount_spent": "$235.75",
+            "clicks": "74",
+            "lead_generated": "5",
+            "cost_per_lead_generated": "$47.15",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "-",
+            "custom_event_22": "-",
+            "ad_schedule": "Apr 17th, 2026 - Ongoing",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        },
+        {
+          "id": "Totals",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "Totals",
+            "custom_event_1": "36.125",
+            "cost_per_custom_event_1": "$90.65",
+            "custom_event_20": "32.125",
+            "delivery": "",
+            "budget": "",
+            "amount_spent": "$3,274.78",
+            "clicks": "1,889",
+            "lead_generated": "194.5",
+            "cost_per_lead_generated": "$16.84",
+            "custom_event_21": "30.125",
+            "custom_event_21_amount": "$50,688.80",
+            "custom_event_22": "3",
+            "ad_schedule": "",
+            "m_avg_application_score": "58.004",
+            "m_expected_roas": "15.479",
+            "m_avg_expected_value": "$1,682.62"
+          }
+        }
+      ]
+    },
+    "ads": {
+      "headers": {
+        "name": "Name",
+        "delivery": "Delivery",
+        "budget": "Budget",
+        "amount_spent": "Amount Spent",
+        "clicks": "Clicks (All)",
+        "lead_generated": "Lead",
+        "cost_per_lead_generated": "Cost per Lead",
+        "custom_event_1": "Application Submitted",
+        "cost_per_custom_event_1": "Cost per Application Submitted",
+        "custom_event_20": "Application Score",
+        "custom_event_21": "Application Expected Value",
+        "custom_event_21_amount": "Application Expected Value Value",
+        "custom_event_22": "Personal or Business Loan",
+        "m_avg_application_score": "Avg Application Score",
+        "m_expected_roas": "Expected ROAS",
+        "m_avg_expected_value": "Avg Expected Value"
+      },
+      "rows": []
+    }
+  },
+  "google": {
+    "campaigns": {
+      "headers": {
+        "name": "Name",
+        "delivery": "Delivery",
+        "budget": "Budget",
+        "amount_spent": "Amount Spent",
+        "clicks": "Clicks (All)",
+        "lead_generated": "Lead",
+        "cost_per_lead_generated": "Cost per Lead",
+        "custom_event_1": "Application Submitted",
+        "cost_per_custom_event_1": "Cost per Application Submitted",
+        "custom_event_20": "Application Score",
+        "custom_event_21": "Application Expected Value",
+        "custom_event_21_amount": "Application Expected Value Value",
+        "custom_event_22": "Personal or Business Loan",
+        "m_avg_application_score": "Avg Application Score",
+        "m_expected_roas": "Expected ROAS",
+        "m_avg_expected_value": "Avg Expected Value"
+      },
+      "rows": [
+        {
+          "id": "Totals",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "Totals",
+            "delivery": "",
+            "budget": "",
+            "amount_spent": "$5,467.24",
+            "clicks": "312",
+            "lead_generated": "-",
+            "cost_per_lead_generated": "-",
+            "custom_event_1": "20.875",
+            "cost_per_custom_event_1": "$261.91",
+            "custom_event_20": "20.875",
+            "custom_event_21": "20.875",
+            "custom_event_21_amount": "$34,257.73",
+            "custom_event_22": "3",
+            "m_avg_application_score": "60.438",
+            "m_expected_roas": "6.266",
+            "m_avg_expected_value": "$1,641.11"
+          }
+        },
+        {
+          "id": "3377699775000036",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Google_Wisconsin | Brand | Search",
+            "custom_event_1": "2.167",
+            "cost_per_custom_event_1": "$348.60",
+            "custom_event_20": "2.167",
+            "custom_event_21": "2.167",
+            "custom_event_21_amount": "$8,336.73",
+            "custom_event_22": "-",
+            "m_avg_application_score": "67.774",
+            "m_expected_roas": "11.038",
+            "m_avg_expected_value": "$3,848.02"
+          }
+        },
+        {
+          "id": "3377699775000037",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Google_Illinois Brand | Search",
+            "custom_event_1": "1",
+            "cost_per_custom_event_1": "$504.94",
+            "custom_event_20": "1",
+            "custom_event_21": "1",
+            "custom_event_21_amount": "$433.77",
+            "custom_event_22": "-",
+            "m_avg_application_score": "62",
+            "m_expected_roas": "0.859",
+            "m_avg_expected_value": "$433.77"
+          }
+        },
+        {
+          "id": "3377699775000038",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Google_Michigan | Brand | Search",
+            "custom_event_1": "2",
+            "cost_per_custom_event_1": "$41.83",
+            "custom_event_20": "2",
+            "custom_event_21": "2",
+            "custom_event_21_amount": "$7,299.78",
+            "custom_event_22": "-",
+            "m_avg_application_score": "73.504",
+            "m_expected_roas": "87.266",
+            "m_avg_expected_value": "$3,650.07"
+          }
+        },
+        {
+          "id": "3377699775000040",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Google_Expansion (FL, OH, NC) - Non-Brand Search",
+            "custom_event_1": "2",
+            "cost_per_custom_event_1": "$296.66",
+            "custom_event_20": "2",
+            "custom_event_21": "2",
+            "custom_event_21_amount": "$2,051.83",
+            "custom_event_22": "-",
+            "m_avg_application_score": "61.5",
+            "m_expected_roas": "3.458",
+            "m_avg_expected_value": "$1,025.92"
+          }
+        },
+        {
+          "id": "3377699775000042",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Google_Core Markets (WI, MI, IL) - Non-Brand Search",
+            "custom_event_1": "6.583",
+            "cost_per_custom_event_1": "$384.80",
+            "custom_event_20": "6.583",
+            "custom_event_21": "6.583",
+            "custom_event_21_amount": "$10,943.84",
+            "custom_event_22": "1",
+            "m_avg_application_score": "61.127",
+            "m_expected_roas": "4.32",
+            "m_avg_expected_value": "$1,662.36"
+          }
+        },
+        {
+          "id": "3377699805000023",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Google_US | Brand | Search",
+            "custom_event_1": "6",
+            "cost_per_custom_event_1": "$166.14",
+            "custom_event_20": "6",
+            "custom_event_21": "6",
+            "custom_event_21_amount": "$3,043.86",
+            "custom_event_22": "1",
+            "m_avg_application_score": "52.5",
+            "m_expected_roas": "3.054",
+            "m_avg_expected_value": "$507.31"
+          }
+        },
+        {
+          "id": "3377699775000031",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Google_Remarketing All Markets",
+            "custom_event_1": "1.125",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "1.125",
+            "custom_event_21": "1.125",
+            "custom_event_21_amount": "$2,147.93",
+            "custom_event_22": "1",
+            "m_avg_application_score": "58.111",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "$1,909.27"
+          }
+        },
+        {
+          "id": "3377699775000035",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "Performance Max - Core Markets (WI, MI, IL)",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "$0.00",
+            "custom_event_22": "-",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        },
+        {
+          "id": "3377699775000039",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Google_Demand Gen - All markets",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "$0.00",
+            "custom_event_22": "-",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        },
+        {
+          "id": "3377699775000041",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "Demand Gen All Markets - LAL",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "$0.00",
+            "custom_event_22": "-",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        },
+        {
+          "id": "4503599712000010",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Google_DemandGen_Forecasa",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "$0.00",
+            "custom_event_22": "-",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        }
+      ]
+    },
+    "adsets": {
+      "headers": {
+        "name": "Name",
+        "custom_event_1": "Application Submitted",
+        "cost_per_custom_event_1": "Cost per Application Submitted",
+        "custom_event_20": "Application Score",
+        "delivery": "Delivery",
+        "amount_spent": "Amount Spent",
+        "clicks": "Clicks (All)",
+        "lead_generated": "Lead",
+        "cost_per_lead_generated": "Cost per Lead",
+        "custom_event_21": "Application Expected Value",
+        "custom_event_21_amount": "Application Expected Value Value",
+        "custom_event_22": "Personal or Business Loan",
+        "m_avg_application_score": "Avg Application Score",
+        "m_expected_roas": "Expected ROAS",
+        "m_avg_expected_value": "Avg Expected Value"
+      },
+      "rows": [
+        {
+          "id": "Totals",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "Totals",
+            "custom_event_1": "20.875",
+            "cost_per_custom_event_1": "$261.91",
+            "custom_event_20": "20.875",
+            "delivery": "",
+            "amount_spent": "$5,467.24",
+            "clicks": "312",
+            "lead_generated": "-",
+            "cost_per_lead_generated": "-",
+            "custom_event_21": "20.875",
+            "custom_event_21_amount": "$34,257.73",
+            "custom_event_22": "3",
+            "m_avg_application_score": "60.438",
+            "m_expected_roas": "6.266",
+            "m_avg_expected_value": "$1,641.11"
+          }
+        },
+        {
+          "id": "4503599682000035",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Google_Remarketing_AllUsers",
+            "custom_event_1": "1.125",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "1.125",
+            "custom_event_21": "1.125",
+            "custom_event_21_amount": "$2,147.93",
+            "custom_event_22": "1",
+            "m_avg_application_score": "58.111",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "$1,909.27"
+          }
+        },
+        {
+          "id": "4503599682000036",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Google_Wisconsin_Brand_Search",
+            "custom_event_1": "2.167",
+            "cost_per_custom_event_1": "$348.60",
+            "custom_event_20": "2.167",
+            "custom_event_21": "2.167",
+            "custom_event_21_amount": "$8,336.73",
+            "custom_event_22": "-",
+            "m_avg_application_score": "67.774",
+            "m_expected_roas": "11.038",
+            "m_avg_expected_value": "$3,848.02"
+          }
+        },
+        {
+          "id": "4503599682000037",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Google_Illinois_Brand_Search",
+            "custom_event_1": "1",
+            "cost_per_custom_event_1": "$504.94",
+            "custom_event_20": "1",
+            "custom_event_21": "1",
+            "custom_event_21_amount": "$433.77",
+            "custom_event_22": "-",
+            "m_avg_application_score": "62",
+            "m_expected_roas": "0.859",
+            "m_avg_expected_value": "$433.77"
+          }
+        },
+        {
+          "id": "4503599682000038",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Google_Michigan_Brand_Search",
+            "custom_event_1": "2",
+            "cost_per_custom_event_1": "$41.83",
+            "custom_event_20": "2",
+            "custom_event_21": "2",
+            "custom_event_21_amount": "$7,299.78",
+            "custom_event_22": "-",
+            "m_avg_application_score": "73.504",
+            "m_expected_roas": "87.266",
+            "m_avg_expected_value": "$3,650.07"
+          }
+        },
+        {
+          "id": "4503599682000040",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "Fix & Flip Interest + Similar Site Visitors + App Usage",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "$0.00",
+            "custom_event_22": "-",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        },
+        {
+          "id": "4503599682000041",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Google_CoreMarkets_NonBrand_Search",
+            "custom_event_1": "6.583",
+            "cost_per_custom_event_1": "$384.80",
+            "custom_event_20": "6.583",
+            "custom_event_21": "6.583",
+            "custom_event_21_amount": "$10,943.84",
+            "custom_event_22": "1",
+            "m_avg_application_score": "61.127",
+            "m_expected_roas": "4.32",
+            "m_avg_expected_value": "$1,662.36"
+          }
+        },
+        {
+          "id": "4503599682000042",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "Customer List LAL + PDV",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "$0.00",
+            "custom_event_22": "-",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        },
+        {
+          "id": "4503599682000050",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Google_Expansion_NonBrand_Search",
+            "custom_event_1": "2",
+            "cost_per_custom_event_1": "$296.66",
+            "custom_event_20": "2",
+            "custom_event_21": "2",
+            "custom_event_21_amount": "$2,051.83",
+            "custom_event_22": "-",
+            "m_avg_application_score": "61.5",
+            "m_expected_roas": "3.458",
+            "m_avg_expected_value": "$1,025.92"
+          }
+        },
+        {
+          "id": "4503599712000017",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "Forecasa",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "$0.00",
+            "custom_event_22": "-",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        },
+        {
+          "id": "4503599712000062",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Google_US_Brand_Search",
+            "custom_event_1": "6",
+            "cost_per_custom_event_1": "$166.14",
+            "custom_event_20": "6",
+            "custom_event_21": "6",
+            "custom_event_21_amount": "$3,043.86",
+            "custom_event_22": "1",
+            "m_avg_application_score": "52.5",
+            "m_expected_roas": "3.054",
+            "m_avg_expected_value": "$507.31"
+          }
+        },
+        {
+          "id": "4503599682000033",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "Performance Max - Core Markets (WI, MI, IL) (performance_max)",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "$0.00",
+            "custom_event_22": "-",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        }
+      ]
+    },
+    "ads": {
+      "headers": {
+        "name": "Name",
+        "delivery": "Delivery",
+        "amount_spent": "Amount Spent",
+        "clicks": "Clicks (All)",
+        "lead_generated": "Lead",
+        "cost_per_lead_generated": "Cost per Lead",
+        "custom_event_1": "Application Submitted",
+        "cost_per_custom_event_1": "Cost per Application Submitted",
+        "custom_event_20": "Application Score",
+        "budget": "Budget",
+        "custom_event_21": "Application Expected Value",
+        "custom_event_21_amount": "Application Expected Value Value",
+        "custom_event_22": "Personal or Business Loan",
+        "m_avg_application_score": "Avg Application Score",
+        "m_expected_roas": "Expected ROAS",
+        "m_avg_expected_value": "Avg Expected Value"
+      },
+      "rows": [
+        {
+          "id": "3377699811000897",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Meta_Generic_20260206",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_GROUP_ID-STRING%1EEQUAL%1E%22120239432523620031%22&selected_campaign_ids=120239432523620031",
+            "delivery": "Active",
+            "budget": "Using Adset Budget",
+            "amount_spent": "$2,642.16",
+            "clicks": "1,638",
+            "lead_generated": "171.5",
+            "cost_per_lead_generated": "$15.41",
+            "custom_event_1": "28.125",
+            "cost_per_custom_event_1": "$93.94",
+            "custom_event_20": "26.125",
+            "custom_event_21": "25.125",
+            "custom_event_21_amount": "$46,957.81",
+            "custom_event_22": "2",
+            "m_avg_application_score": "60.11",
+            "m_expected_roas": "17.773",
+            "m_avg_expected_value": "$1,868.97"
+          }
+        },
+        {
+          "id": "4503599720000067",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Meta_Brokers_20260304 _Angle_Test",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_GROUP_ID-STRING%1EEQUAL%1E%22120240548660790031%22&selected_campaign_ids=120240548660790031",
+            "delivery": "Active",
+            "budget": "Using Adset Budget",
+            "amount_spent": "$423.87",
+            "clicks": "160",
+            "lead_generated": "23",
+            "cost_per_lead_generated": "$18.43",
+            "custom_event_1": "5.667",
+            "cost_per_custom_event_1": "$74.80",
+            "custom_event_20": "3.667",
+            "custom_event_21": "3",
+            "custom_event_21_amount": "$287.02",
+            "custom_event_22": "0.667",
+            "m_avg_application_score": "39.637",
+            "m_expected_roas": "0.677",
+            "m_avg_expected_value": "$95.67"
+          }
+        },
+        {
+          "id": "4503599731000122",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Meta_LandingPage",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_GROUP_ID-STRING%1EEQUAL%1E%22120243836849650031%22&selected_campaign_ids=120243836849650031",
+            "delivery": "Active",
+            "budget": "Using Adset Budget",
+            "amount_spent": "$208.75",
+            "clicks": "91",
+            "lead_generated": "-",
+            "cost_per_lead_generated": "-",
+            "custom_event_1": "2.333",
+            "cost_per_custom_event_1": "$89.47",
+            "custom_event_20": "2.333",
+            "custom_event_21": "2",
+            "custom_event_21_amount": "$3,443.97",
+            "custom_event_22": "0.333",
+            "m_avg_application_score": "63.287",
+            "m_expected_roas": "16.498",
+            "m_avg_expected_value": "$1,721.99"
+          }
+        },
+        {
+          "id": "3377699808000188",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Meta_Forecasa&ForecasaADV+",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_GROUP_ID-STRING%1EEQUAL%1E%22120238051629060031%22&selected_campaign_ids=120238051629060031",
+            "delivery": "Paused",
+            "budget": "$40.00\n(daily)",
+            "amount_spent": "-",
+            "clicks": "-",
+            "lead_generated": "-",
+            "cost_per_lead_generated": "-",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "$0.00",
+            "custom_event_22": "-",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        },
+        {
+          "id": "4503599706000234",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Meta_Generic_20251110",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_GROUP_ID-STRING%1EEQUAL%1E%22120235243629020031%22&selected_campaign_ids=120235243629020031",
+            "delivery": "Paused",
+            "budget": "$315.00\n(daily)",
+            "amount_spent": "-",
+            "clicks": "-",
+            "lead_generated": "-",
+            "cost_per_lead_generated": "-",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "$0.00",
+            "custom_event_22": "-",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        },
+        {
+          "id": "4503599713000291",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Meta_Generic_20251110 - Copy (RIQ Flippers)",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_GROUP_ID-STRING%1EEQUAL%1E%22120238730003590031%22&selected_campaign_ids=120238730003590031",
+            "delivery": "Paused",
+            "budget": "$100.00\n(daily)",
+            "amount_spent": "-",
+            "clicks": "-",
+            "lead_generated": "-",
+            "cost_per_lead_generated": "-",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "$0.00",
+            "custom_event_22": "-",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        },
+        {
+          "id": "4503599713000335",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "THMC_Meta_Brokers_20260106 - Copy(RIQAgents+LO's)",
+            "_platform_url": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=850448857515247&filter_set=SEARCH_BY_CAMPAIGN_GROUP_ID-STRING%1EEQUAL%1E%22120238771546440031%22&selected_campaign_ids=120238771546440031",
+            "delivery": "Paused",
+            "budget": "$100.00\n(daily)",
+            "amount_spent": "-",
+            "clicks": "-",
+            "lead_generated": "-",
+            "cost_per_lead_generated": "-",
+            "custom_event_1": "-",
+            "cost_per_custom_event_1": "-",
+            "custom_event_20": "-",
+            "custom_event_21": "-",
+            "custom_event_21_amount": "$0.00",
+            "custom_event_22": "-",
+            "m_avg_application_score": "-",
+            "m_expected_roas": "-",
+            "m_avg_expected_value": "-"
+          }
+        },
+        {
+          "id": "Totals",
+          "cells": {
+            "ag-Grid-SelectionColumn": "",
+            "name": "Totals",
+            "delivery": "",
+            "budget": "",
+            "amount_spent": "$3,274.78",
+            "clicks": "1,889",
+            "lead_generated": "194.5",
+            "cost_per_lead_generated": "$16.84",
+            "custom_event_1": "36.125",
+            "cost_per_custom_event_1": "$90.65",
+            "custom_event_20": "32.125",
+            "custom_event_21": "30.125",
+            "custom_event_21_amount": "$50,688.80",
+            "custom_event_22": "3",
+            "m_avg_application_score": "58.004",
+            "m_expected_roas": "15.479",
+            "m_avg_expected_value": "$1,682.62"
+          }
+        }
+      ]
+    }
+  }
+}
